@@ -1,7 +1,6 @@
 lsi: false
 safe: true
 source: [main]
-source: [your repo's top level directory]
 incremental: false
 highlighter: rouge
 gist:
@@ -10,5 +9,5 @@ kramdown:
   math_engine: mathjax
   syntax_highlighter: rouge
 theme: jekyll-theme-minimal
-title: Octocat's homepage
+title: thomastron's domicile
 description: Bookmark this to keep an eye on my project updates!
