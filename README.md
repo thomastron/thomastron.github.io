@@ -2,7 +2,7 @@
 
 https://thomastron.github.io/
 
-This collection of Jupyter notebooks covers topics used in Mechanical Engineering. These notebooks can be used in several ways. You can copy the files from the Github repository or use the free web-hosted service [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/thomastron/thomastron.github.io.git/HEAD)
+This collection of Jupyter notebooks covers topics used in Mechanical Engineering. These notebooks can be used in several ways. You can copy the files from the Github repository or use the free web-hosted service [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/thomastron/thomastron.github.io/HEAD)
 
 **DISCLAIMER**
 
