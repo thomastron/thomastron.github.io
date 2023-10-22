@@ -2,16 +2,18 @@
 
 https://thomastron.github.io/
 
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/thomastron/thomastron.github.io.git/HEAD)
-
-This collection of Jupyter notebooks cover topics used in Mechanical Engineering. 
+This collection of Jupyter notebooks cover topics used in Mechanical Engineering. These notebooks can be used several ways. You can copy the files from the Github repository or use the free web-hosted service [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/thomastron/thomastron.github.io.git/HEAD)
 
 **DISCLAIMER**
-Most of this code is built on the shoulders of giants. An effort was taken to cite the source material. 
+
+Most of this code is built on the shoulders of giants. Effort is taken to cite the source material, but citation is far from complete. 
 
 This prominent disclaimer indicates the project is *not associated with the original material* and was **only created for educational purposes**. Much of the content was harvested and cleaned up to make better learning aids. The site shall not knowingly collect any user data. 
 
+---
+
 Example content as a template...
+because I'm getting stated with basics. 
 # PlaneSections
 <p align="center">
   <img src="doc/img/Beam Image.png" width="500">
