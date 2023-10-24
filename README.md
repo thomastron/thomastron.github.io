@@ -11,25 +11,9 @@ Most of this code is built on the shoulders of giants. Effort is taken to cite t
 This prominent disclaimer indicates the project is *not associated with the original material* and was **only created for educational purposes**. Much of the content was harvested and cleaned up to make better learning aids. The site shall not knowingly collect any user data. 
 
 ---
-
-Example content as a template...
-because I'm getting started with basics. 
-# Plasdfasdas
-<p align="center">
-  <img src="doc/img/Beam Image.png" width="500">
+<p style="text-align:center">
+  <img src="http://raw.githubusercontent.com/thomastron/thomastron.github.io/main/notebooks/assets/OIG2.jpg" style="width:40%" /> 
+  <img src="http://raw.githubusercontent.com/thomastron/thomastron.github.io/main/notebooks/assets/OIG3.jpg" style="width:40%" /> 
+  <img src="http://raw.githubusercontent.com/thomastron/thomastron.github.io/main/notebooks/assets/OIG4.jpg" style="width:40%" /> 
+  <img src="http://raw.githubusercontent.com/thomastron/thomastron.github.io/main/notebooks/assets/OIG5.jpg" style="width:40%" />
 </p>
-
-A light
-
-**NOTE:**
-Units for force and lenl;,;';lk;'p scale of the digrams may be off.
-
-## Contents
-* [Installation](https://github.com/cslotboom/planesections#Installation)
-* [Features](https://github.com/cslotboom/planesections#Features)
-
-## Features:
-2D and
-
-## Documentation
- .readthedocs.io/en/latest/
