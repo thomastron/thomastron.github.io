@@ -1,3 +1,8 @@
+layout: page
+title: "PAGE-TITLE"
+permalink: /URLPATH
+
+
 # 1: Equilibrium of a deformable body
 
 <img width="15%" src="http://github.com/thomastron/thomastron.github.io/blob/main/notebooks/assets/20231110092955.jpg?raw=true"> <img width="15%" src="http://github.com/thomastron/thomastron.github.io/blob/main/notebooks/assets/20231110093018.jpg?raw=true">
