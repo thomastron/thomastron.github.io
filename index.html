@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReSID-Diplo: Self-Improving AI for Diplomacy</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 400px;
+            }
+        }
+        .flow-line {
+            position: absolute;
+            background-color: #06B6D4; 
+            z-index: 0;
+        }
+        .flow-line-h {
+            height: 4px;
+        }
+        .flow-line-v {
+            width: 4px;
+            
+        }
+        .arrow-down {
+            width: 0; 
+            height: 0; 
+            border-left: 8px solid transparent;
+            border-right: 8px solid transparent;
+            border-top: 8px solid #06B6D4;
+        }
+        .arrow-right {
+            width: 0; 
+            height: 0; 
+            border-top: 8px solid transparent;
+            border-bottom: 8px solid transparent;
+            border-left: 8px solid #06B6D4;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -10px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #0891B2;
+            border: 4px solid #F0F9FF;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-700">
+    <!-- Palette: Brilliant Blues -->
+    <!-- Plan: Structure infographic with sections for Introduction, Architecture, Agents, Improvement Loops, Evaluation, Roadmap, and Ethics. -->
+    <!-- Visuals: Use HTML/CSS flowcharts, Chart.js Radar Chart, and an HTML/CSS timeline. No SVG or Mermaid JS will be used. -->
+
+    <div class="container mx-auto p-4 md:p-8">
+
+        <header class="text-center my-12">
+            <h1 class="text-4xl md:text-6xl font-black text-slate-800">ReSID-Diplo</h1>
+            <p class="text-xl md:text-2xl font-light text-cyan-600 mt-2">A Recursive Self-Improving Architecture for Generic AI Diplomacy Systems</p>
+            <p class="max-w-3xl mx-auto mt-4 text-slate-600">
+                This report proposes ReSID-Diplo, a conceptual framework for an AI system engineered to support diplomatic functions, endowed with the capacity for recursive self-improvement in its collaborative and strategic capabilities. It is designed to learn from interactions and refine its strategies to navigate the intricate landscape of international relations.
+            </p>
+        </header>
+
+        <section id="architecture" class="my-16">
+            <h2 class="text-3xl font-bold text-center text-slate-800 mb-2">Core Multi-Agent Architecture</h2>
+            <p class="text-center max-w-2xl mx-auto text-slate-600 mb-12">Inspired by "Agents of Change," ReSID-Diplo uses a collaborative ensemble of specialized AI agents. Each agent has a distinct role, and they work in concert to analyze, strategize, act, and evolve.</p>
+            
+            <div class="relative max-w-6xl mx-auto p-4">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-y-16">
+                    
+                    <div class="absolute top-1/2 left-0 w-full h-1 bg-cyan-200 hidden md:block"></div>
+                    <div class="absolute top-0 left-1/2 w-1 h-full bg-cyan-200 hidden md:block"></div>
+                    
+                    <div class="bg-white p-6 rounded-lg shadow-lg text-center z-10 border-t-4 border-cyan-500">
+                        <div class="text-4xl mb-2">🧠</div>
+                        <h3 class="text-xl font-bold text-slate-800">Geopolitical & Normative Knowledge Weaver (GKW)</h3>
+                        <p class="text-sm mt-2">Accesses, processes, and synthesizes vast, diverse data: international law, treaties, history, cultural norms, and geopolitical intelligence.</p>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-lg shadow-lg text-center z-10 border-t-4 border-cyan-500">
+                        <div class="text-4xl mb-2">📈</div>
+                        <h3 class="text-xl font-bold text-slate-800">Performance & Impact Analyzer (PIA)</h3>
+                        <p class="text-sm mt-2">Evaluates outcomes of actions, identifies successes/failures, unintended consequences, ethical adherence, and relational impacts.</p>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-lg shadow-lg text-center z-10 border-t-4 border-cyan-500">
+                        <div class="text-4xl mb-2">⚖️</div>
+                        <h3 class="text-xl font-bold text-slate-800">Strategic Policy Advisor (SPA)</h3>
+                        <p class="text-sm mt-2">Develops and critiques high-level diplomatic strategies, long-term goals, and negotiation frameworks, considering ethical implications.</p>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-lg shadow-lg text-center z-10 md:col-span-3 border-t-4 border-teal-500 relative">
+                        <div class="absolute top-[-40px] left-1/2 -translate-x-1/2 flex flex-col items-center">
+                            <div class="w-1 h-10 bg-cyan-400"></div>
+                            <div class="arrow-down border-t-cyan-400"></div>
+                        </div>
+                        <div class="text-4xl mb-2">⚙️</div>
+                        <h3 class="text-xl font-bold text-slate-800">Meta-Evolution Coordinator (MEC)</h3>
+                        <p class="text-sm mt-2">The central orchestrator. Manages self-improvement cycles, prioritizes evolution areas, commissions tasks to other agents, and integrates their outputs.</p>
+                        <div class="absolute bottom-[-40px] left-1/2 -translate-x-1/2 flex flex-col items-center">
+                            <div class="arrow-down border-t-cyan-400"></div>
+                             <div class="w-1 h-10 bg-cyan-400"></div>
+                        </div>
+                    </div>
+
+
+                    <div class="bg-white p-6 rounded-lg shadow-lg text-center z-10 border-t-4 border-sky-500">
+                        <div class="text-4xl mb-2">🗣️</div>
+                        <h3 class="text-xl font-bold text-slate-800">Diplomatic Actor Agent (DAA)</h3>
+                        <p class="text-sm mt-2">Executes diplomatic actions (communication, negotiation, policy suggestions) in simulated or real environments.</p>
+                    </div>
+                    
+                     <div class="bg-white p-6 rounded-lg shadow-lg text-center z-10 border-t-4 border-sky-500">
+                        <div class="text-4xl mb-2">💻</div>
+                        <h3 class="text-xl font-bold text-slate-800">Behavioral Logic & Protocol Architect (BLPA)</h3>
+                        <p class="text-sm mt-2">Modifies the DAA's decision models, communication protocols, or other agents' logic based on system-wide recommendations.</p>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-lg shadow-lg text-center z-10 border-t-4 border-sky-500">
+                        <div class="text-4xl mb-2">🧑‍⚖️</div>
+                        <h3 class="text-xl font-bold text-slate-800">Human Interaction & Oversight Gateway (HIOG)</h3>
+                        <p class="text-sm mt-2">Manages all human-AI interactions; translates AI outputs for humans and human inputs for AI, ensuring transparency and safety.</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="improvement-loops" class="my-24">
+            <h2 class="text-3xl font-bold text-center text-slate-800 mb-2">The Engine of Improvement</h2>
+            <p class="text-center max-w-2xl mx-auto text-slate-600 mb-12">ReSID-Diplo features two recursive self-improvement cycles, allowing for both incremental refinement and fundamental evolution of its capabilities.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div class="bg-white p-8 rounded-lg shadow-xl border-l-4 border-cyan-500">
+                    <h3 class="text-2xl font-bold text-cyan-600 mb-4">Diplomatic Strategy Refinement Loop (DSRL)</h3>
+                    <p class="mb-6">This loop is designed for iterative enhancement of diplomatic strategies, negotiation tactics, and communication styles. It improves <span class="font-bold">how</span> the DAA executes tasks based on existing logic.</p>
+                    <div class="space-y-4">
+                        <div class="flex items-center"><div class="bg-cyan-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold mr-4">1</div><div>DAA performs a diplomatic task.</div></div>
+                        <div class="ml-4 pl-4 border-l-2 border-cyan-200"><div class="arrow-down border-t-cyan-200 my-1"></div></div>
+                        <div class="flex items-center"><div class="bg-cyan-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold mr-4">2</div><div>PIA analyzes the outcomes.</div></div>
+                        <div class="ml-4 pl-4 border-l-2 border-cyan-200"><div class="arrow-down border-t-cyan-200 my-1"></div></div>
+                        <div class="flex items-center"><div class="bg-cyan-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold mr-4">3</div><div>SPA suggests refined strategies.</div></div>
+                         <div class="ml-4 pl-4 border-l-2 border-cyan-200"><div class="arrow-down border-t-cyan-200 my-1"></div></div>
+                        <div class="flex items-center"><div class="bg-cyan-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold mr-4">4</div><div>MEC reviews and integrates changes.</div></div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-8 rounded-lg shadow-xl border-l-4 border-teal-500">
+                    <h3 class="text-2xl font-bold text-teal-600 mb-4">Behavioral Logic Evolution Loop (BLEL)</h3>
+                    <p class="mb-6">This loop facilitates autonomous adaptation of core logic and interaction models. It changes <span class="font-bold">what</span> the system is capable of or <span class="font-bold">how it fundamentally operates.</span></p>
+                     <div class="space-y-4">
+                        <div class="flex items-center"><div class="bg-teal-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold mr-4">1</div><div>PIA identifies deep or recurring issues.</div></div>
+                         <div class="ml-4 pl-4 border-l-2 border-teal-200"><div class="arrow-down border-t-teal-200 my-1"></div></div>
+                        <div class="flex items-center"><div class="bg-teal-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold mr-4">2</div><div>SPA proposes paradigm shifts or new models.</div></div>
+                         <div class="ml-4 pl-4 border-l-2 border-teal-200"><div class="arrow-down border-t-teal-200 my-1"></div></div>
+                        <div class="flex items-center"><div class="bg-teal-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold mr-4">3</div><div>BLPA implements changes to agent "code".</div></div>
+                         <div class="ml-4 pl-4 border-l-2 border-teal-200"><div class="arrow-down border-t-teal-200 my-1"></div></div>
+                        <div class="flex items-center"><div class="bg-teal-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold mr-4">4</div><div>MEC oversees rigorous testing and validation.</div></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="evaluation" class="my-24">
+            <h2 class="text-3xl font-bold text-center text-slate-800 mb-2">Measuring Success: A Multi-Dimensional Framework</h2>
+            <p class="text-center max-w-2xl mx-auto text-slate-600 mb-12">Evaluating ReSID-Diplo requires a robust framework. Success is not a single metric but a combination of effectiveness, continuous improvement, trust, ethical alignment, and strategic sophistication.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div class="bg-white p-8 rounded-lg shadow-xl">
+                    <h3 class="text-xl font-bold text-center text-slate-800 mb-4">Key Evaluation Dimensions</h3>
+                    <div class="chart-container">
+                        <canvas id="evaluationRadarChart"></canvas>
+                    </div>
+                </div>
+                <div class="space-y-6">
+                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                         <h4 class="font-bold text-cyan-700">Negotiation Efficacy</h4>
+                         <p class="text-sm">Metrics include Pareto Optimality Score, Agreement Rate, and Joint Utility Achieved to measure how well the AI facilitates mutually beneficial outcomes.</p>
+                    </div>
+                     <div class="bg-white p-6 rounded-lg shadow-lg">
+                         <h4 class="font-bold text-cyan-700">Self-Improvement Rate</h4>
+                         <p class="text-sm">Tracking the reduction in suboptimal actions per cycle and the learning curve on key tasks to quantify the system's evolution.</p>
+                    </div>
+                     <div class="bg-white p-6 rounded-lg shadow-lg">
+                         <h4 class="font-bold text-cyan-700">Human-AI Trust & Collaboration</h4>
+                         <p class="text-sm">Using validated scales (like TOAST/S-TIAS) and tracking the rate of human overrides to measure trust and alignment.</p>
+                    </div>
+                     <div class="bg-white p-6 rounded-lg shadow-lg">
+                         <h4 class="font-bold text-cyan-700">Ethical Alignment & Risk Management</h4>
+                         <p class="text-sm">Measuring adherence to ethical constraints, the accuracy of risk assessments, and effectiveness of bias mitigation.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="roadmap" class="my-24">
+             <h2 class="text-3xl font-bold text-center text-slate-800 mb-2">Phased Development and Implementation Roadmap</h2>
+            <p class="text-center max-w-2xl mx-auto text-slate-600 mb-12">The development of ReSID-Diplo is envisioned as a multi-year undertaking proceeding through iterative phases of increasing capability and rigor.</p>
+            <div class="relative max-w-2xl mx-auto">
+                <div class="border-l-4 border-cyan-200 absolute h-full top-0 left-4"></div>
+                <div class="space-y-12">
+                    <div class="relative pl-12 timeline-item">
+                        <h4 class="font-bold text-xl text-cyan-700">Phase 1: Foundational Framework (Months 1-12)</h4>
+                        <p class="text-slate-600">Establish the basic multi-agent architecture (MEC, DAA, PIA, GKW) and implement the human-driven Diplomatic Strategy Refinement Loop (DSRL) within a rudimentary simulation environment.</p>
+                    </div>
+                    <div class="relative pl-12 timeline-item">
+                        <h4 class="font-bold text-xl text-cyan-700">Phase 2: Enhanced Capabilities & Initial Self-Improvement (Months 13-24)</h4>
+                        <p class="text-slate-600">Develop more sophisticated agent capabilities (SPA, BLPA) and introduce the Behavioral Logic Evolution Loop (BLEL) in a constrained, sandboxed manner. Refine HITL interfaces.</p>
+                    </div>
+                    <div class="relative pl-12 timeline-item">
+                        <h4 class="font-bold text-xl text-cyan-700">Phase 3: Advanced Features & Rigorous Evaluation (Months 25-36)</h4>
+                        <p class="text-slate-600">Incorporate advanced features like multi-party negotiation, a predictive foresight engine, and conduct extensive evaluations with human diplomatic experts.</p>
+                    </div>
+                    <div class="relative pl-12 timeline-item">
+                        <h4 class="font-bold text-xl text-cyan-700">Phase 4: Controlled Piloting & Deployment (Months 37+)</h4>
+                        <p class="text-slate-600">Explore the system's utility in controlled, low-risk, real-world analytical tasks or advanced training simulations, with continuous refinement based on pilot feedback.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="text-center my-16 border-t pt-8">
+             <h3 class="text-2xl font-bold text-slate-800 mb-4">Challenges & Ethical Imperatives</h3>
+            <div class="max-w-4xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
+                <div class="bg-white p-4 rounded-lg shadow-md">
+                    <p class="font-bold">🛡️ Accountability</p>
+                    <p>Human diplomats must remain accountable for all final decisions.</p>
+                </div>
+                <div class="bg-white p-4 rounded-lg shadow-md">
+                    <p class="font-bold">🔎 Transparency (XAI)</p>
+                    <p>AI reasoning and evolution must be understandable to human overseers.</p>
+                </div>
+                 <div class="bg-white p-4 rounded-lg shadow-md">
+                    <p class="font-bold">⚠️ Bias Mitigation</p>
+                    <p>Continuous auditing is required to prevent and correct algorithmic bias.</p>
+                </div>
+                <div class="bg-white p-4 rounded-lg shadow-md">
+                    <p class="font-bold">🔒 Security</p>
+                    <p>Robust cybersecurity is needed to prevent manipulation or espionage.</p>
+                </div>
+            </div>
+             <p class="text-xs text-slate-500 mt-8">This infographic is a visual representation of the research proposal "A Recursive Self-Improving Architecture for Generic AI Diplomacy Systems (ReSID-Diplo)". It is intended for illustrative purposes. No SVG or Mermaid JS was used in the creation of this document.</p>
+        </footer>
+
+    </div>
+
+    <script>
+        function wrapLabel(str, maxWidth) {
+            if (str.length <= maxWidth) {
+                return str;
+            }
+            const words = str.split(' ');
+            let lines = [];
+            let currentLine = '';
+            words.forEach(word => {
+                if ((currentLine + ' ' + word).length > maxWidth && currentLine.length > 0) {
+                    lines.push(currentLine);
+                    currentLine = word;
+                } else {
+                    currentLine = currentLine ? currentLine + ' ' + word : word;
+                }
+            });
+            lines.push(currentLine);
+            return lines;
+        }
+
+        const tooltipTitleCallback = (tooltipItems) => {
+            const item = tooltipItems[0];
+            let label = item.chart.data.labels[item.dataIndex];
+            if (Array.isArray(label)) {
+              return label.join(' ');
+            } else {
+              return label;
+            }
+        };
+
+        const ctx = document.getElementById('evaluationRadarChart');
+        if (ctx) {
+            new Chart(ctx, {
+                type: 'radar',
+                data: {
+                    labels: [
+                        'Negotiation Efficacy', 
+                        'Self-Improvement Rate', 
+                        ['Human-AI Trust', '& Collaboration'], 
+                        'Ethical Alignment', 
+                        ['Strategic', 'Sophistication']
+                    ],
+                    datasets: [{
+                        label: 'System Performance Goal',
+                        data: [90, 85, 95, 100, 80],
+                        fill: true,
+                        backgroundColor: 'rgba(14, 165, 233, 0.2)',
+                        borderColor: 'rgb(14, 165, 233)',
+                        pointBackgroundColor: 'rgb(14, 165, 233)',
+                        pointBorderColor: '#fff',
+                        pointHoverBackgroundColor: '#fff',
+                        pointHoverBorderColor: 'rgb(14, 165, 233)'
+                    }]
+                },
+                options: {
+                    maintainAspectRatio: false,
+                    responsive: true,
+                    elements: {
+                        line: {
+                            borderWidth: 3
+                        }
+                    },
+                    scales: {
+                        r: {
+                            angleLines: {
+                                color: 'rgba(0, 0, 0, 0.1)'
+                            },
+                            grid: {
+                                color: 'rgba(0, 0, 0, 0.1)'
+                            },
+                            pointLabels: {
+                                font: {
+                                    size: 12,
+                                    weight: 'bold'
+                                },
+                                color: '#0369A1'
+                            },
+                            ticks: {
+                                backdropColor: 'rgba(255, 255, 255, 0.75)',
+                                color: '#64748B',
+                                font: {
+                                    size: 10
+                                }
+                            },
+                             min: 0,
+                             max: 100
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        tooltip: {
+                            callbacks: {
+                                title: tooltipTitleCallback
+                            }
+                        }
+                    }
+                }
+            });
+        }
+    </script>
+</body>
+</html>
