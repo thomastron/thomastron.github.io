@@ -1,44 +1,241 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PT$D — First Edition Sample & Launch</title>
+  <meta name="description" content="Read and listen to sample chapters from PT$D (First Edition). Help launch by buying, reviewing, and sharing." />
+  <!-- Open Graph / Social -->
+  <meta property="og:title" content="PT$D — First Edition" />
+  <meta property="og:description" content="Sample chapters (text + audio). This first edition is print-on-demand—your order is the launch." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="./cover.jpg" />
+  <meta property="og:url" content="https://thomastron.github.io/" />
+  <link rel="canonical" href="https://thomastron.github.io/" />
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="PT$D — First Edition" />
+  <meta name="twitter:description" content="Sample chapters (text + audio). This first edition is print-on-demand—your order is the launch." />
+  <meta name="twitter:image" content="./cover.jpg" />
+  <style>
+    :root { --bg: #0b0c10; --panel: #121318; --ink: #e6e7eb; --muted: #a7adba; --accent: #7dd3fc; --accent2: #a78bfa; --ok: #34d399; --warn: #fbbf24; }
+    * { box-sizing: border-box; }
+    html, body { margin:0; padding:0; background: var(--bg); color: var(--ink); font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji"; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .wrap { max-width: 980px; margin: 0 auto; padding: 24px; }
+    header.hero { display: grid; grid-template-columns: 1fr; gap: 24px; align-items: center; padding: 32px 0 8px; }
+    .card { background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02)); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 20px; box-shadow: 0 10px 24px rgba(0,0,0,0.35); }
+    .pill { display:inline-flex; align-items:center; gap:8px; padding:6px 10px; border-radius:999px; border:1px solid rgba(255,255,255,0.12); color: var(--muted); font-size: 12px; letter-spacing:.25px; }
+    .title { font-size: clamp(28px, 4vw, 42px); line-height:1.1; margin: 4px 0 8px; }
+    .subtitle { color: var(--muted); font-size: clamp(14px, 2vw, 18px); }
+    .cta-row { display:flex; flex-wrap:wrap; gap:12px; margin-top: 16px; }
+    .btn { appearance:none; border:1px solid rgba(255,255,255,0.12); background: radial-gradient(100% 100% at 50% 0%, rgba(125,211,252,0.16), rgba(167,139,250,0.06)); color: var(--ink); padding: 12px 16px; border-radius: 12px; font-weight: 600; cursor: pointer; }
+    .btn:hover{ transform: translateY(-1px); }
+    .btn.primary{ background: linear-gradient(135deg, rgba(125,211,252,0.25), rgba(167,139,250,0.25)); border-color: rgba(255,255,255,0.22); }
+    .grid { display:grid; grid-template-columns: 1fr; gap: 16px; }
+    section { margin: 28px 0; }
+    h2 { font-size: 18px; text-transform: uppercase; letter-spacing: .18em; color: var(--muted); margin: 0 0 12px; }
+    .media { display:grid; grid-template-columns: 1fr; gap: 16px; }
+    .pdf-list a { display:flex; align-items:center; justify-content: space-between; gap: 12px; padding: 12px 14px; border-radius: 12px; border:1px solid rgba(255,255,255,0.12); background: rgba(255,255,255,0.02); }
+    .tag { font-size: 12px; color: var(--muted); border:1px solid rgba(255,255,255,.12); padding: 2px 8px; border-radius: 999px; }
+    .note { color: var(--muted); font-size: 14px; }
+    .callout { border-left: 3px solid var(--accent); padding-left: 12px; color: var(--muted); }
+    footer { margin: 40px 0 24px; color: var(--muted); font-size: 13px; }
+    .flex { display:flex; gap: 12px; align-items:center; }
+    .two { display:grid; grid-template-columns: 1fr; gap:16px; }
+    .buybox { display:grid; grid-template-columns: 1fr; gap: 12px; }
+    .share-row { display:flex; flex-wrap:wrap; gap:10px; }
+    .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+    .small { font-size: 12px; color: var(--muted); }
+    details { border:1px solid rgba(255,255,255,0.12); padding: 12px 14px; border-radius: 12px; }
+    details > summary { cursor: pointer; font-weight: 600; }
+    blockquote{ margin: 0; padding: 12px 14px; border-left: 3px solid var(--accent2); color: var(--muted); font-style: italic; background: rgba(255,255,255,0.02); border-radius: 8px; }
+
+    @media (min-width: 820px) {
+      header.hero { grid-template-columns: 1.2fr .8fr; }
+      .grid.two { grid-template-columns: 1fr 1fr; }
+      .media { grid-template-columns: 1fr 1fr; }
+      .buybox { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+  <script>
+    // --- Utilities ---
+    function copyText(id, btnId){
+      const el = document.getElementById(id);
+      const btn = document.getElementById(btnId);
+      if (!el) return;
+      const value = el.getAttribute('href') || el.textContent.trim();
+      navigator.clipboard.writeText(value).then(()=>{
+        if(btn){ const old = btn.textContent; btn.textContent = 'Copied!'; setTimeout(()=> btn.textContent = old, 1400); }
+      });
+    }
+
+    async function share(title, text){
+      const url = window.location.href;
+      if (navigator.share){
+        try { await navigator.share({ title, text, url }); } catch(e){}
+      } else { alert('Link copied to clipboard.'); navigator.clipboard.writeText(url); }
+    }
+    function swapPreview(href){
+      const frame = document.getElementById('pdfPreview');
+      frame.src = href; window.scrollTo({ top: frame.offsetTop - 80, behavior: 'smooth' });
+    }
+
+    // --- Minimal smoke tests (non-invasive) ---
+    document.addEventListener('DOMContentLoaded', () => {
+      try {
+        console.assert(typeof copyText === 'function', 'copyText exists');
+        console.assert(typeof share === 'function', 'share exists');
+        const buy = document.getElementById('buyLink');
+        console.assert(buy && /amazon\.com\/dp\/B0FS352Z6J/.test(buy.href), 'buyLink href ok');
+      } catch (e) {
+        console.error('Self-test failed', e);
+      }
+    });
+  </script>
+  <!-- Schema.org Book (fill placeholders) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Book",
+    "name": "PT$D",
+    "bookEdition": "First Edition",
+    "author": {"@type":"Person","name":"YOUR NAME"},
+    "datePublished": "2025-10-01",
+    "publisher": {"@type":"Organization","name":"Self-published"},
+    "description": "Sample chapters and launch info for PT$D. Print-on-demand first edition.",
+    "workExample": {
+      "@type": "Book",
+      "bookFormat": "EBook",
+      "potentialAction": {
+        "@type": "ReadAction",
+        "target": {"@type":"EntryPoint","urlTemplate":""}
+      }
+    }
+  }
+  </script>
+</head>
 <body>
-<h1 style="text-align:center">~thomastron~</span></h1>
-<p style="text-align:center">&nbsp;</p>
-<h2 style="text-align:center"><a href="https://github.com/thomastron/thomastron.github.io">github.com/thomastron/</a></h2>
-<h4 style="text-align:center">This collection of Jupyter notebooks is primarily equations and code snippets, but it includes explanations on using the notebooks and understanding python. You can copy the files from the Github repository and use the files locally by hosting a Jupyter server on your local machine. Another option is to use the free web-hosted service Binder that creates and hosts a Jupyter server based on the github repo. This doesn't work on mobile devices:&nbsp; <a href="https://mybinder.org/v2/gh/thomastron/thomastron.github.io/HEAD" target="_blank"><img alt="" src="https://mybinder.org/badge_logo.svg" style="height:20px; width:109px" /></a></h4>.
-<h3 style="text-align:center">DISCLAIMER&nbsp;</h1>
-<h4 style="text-align:center">This prominent disclaimer indicates this project is not associated with the original material and was only created for educational purposes. Most of this code is built on the shoulders of giants. Effort is taken to cite the source material, but the citation is incomplete. By reading this statement, you have waived any responsibility on our part in perpetuity throughout the universe.</h4>  
-<p style="text-align:center">&nbsp;</p>
-<p style="text-align:center">&nbsp;</p>
-<p style="text-align:center">&nbsp;</p>
-<p style="text-align:center">&nbsp;</p>
-<p style="text-align:center">&nbsp;</p>
-<p style="text-align:center">&nbsp;</p>
-<p style="text-align:center">&nbsp;</p>
-<p style="text-align:center">&nbsp;</p>
-<p style="text-align:center">&nbsp;</p>
-<p style="text-align:center">&nbsp;</p>
-<p style="text-align:center">&nbsp;</p>
-<p style="text-align:center">&nbsp;</p>
-<p style="text-align:center">&nbsp;</p>
-<p style="text-align:center">&nbsp;</p>
-<p style="text-align:center">&nbsp;</p>
-<p style="text-align:center">&nbsp;</p>
-<p style="text-align:center">&nbsp;</p>
-<p style="text-align:center">&nbsp;</p>
-<p style="text-align:center">&nbsp;</p>
-<p style="text-align:center">&nbsp;</p>
-<p style="text-align:center">&nbsp;</p>
-<p style="text-align:center">&nbsp;</p>
-<p style="text-align:center">&nbsp;</p>
-<p style="text-align:center">&nbsp;</p>
-<p style="text-align:center">&nbsp;</p>
-<p style="text-align:center">&nbsp;</p>
-<p style="text-align:center">&nbsp;</p>
-<h2 style="text-align:center">&nbsp;</h2>
-<h2 style="text-align:center">&nbsp;</h2>
-<p style="text-align:center">Best website ever!</p>
-<p style="text-align:center"><img src="http://raw.githubusercontent.com/thomastron/thomastron.github.io/main/notebooks/assets/OIG2.jpg" style="width:40%" /> <img src="http://raw.githubusercontent.com/thomastron/thomastron.github.io/main/notebooks/assets/OIG3.jpg" style="width:40%" /> <img src="http://raw.githubusercontent.com/thomastron/thomastron.github.io/main/notebooks/assets/OIG4.jpg" style="width:40%" /> <img src="http://raw.githubusercontent.com/thomastron/thomastron.github.io/main/notebooks/assets/OIG5.jpg" style="width:40%" /></p>
-<p style="text-align:center">hosted with GitHub Pages.</p>
+  <div class="wrap">
+    <header class="hero">
+      <div>
+        <span class="pill">First Edition • Print-on-Demand • Document Control</span>
+        <h1 class="title">PT$D <span class="subtitle">— Truth as Currency in a Market of Denial</span></h1>
+        <p class="subtitle">This launch runs on friends + the quality of the argument. No stockpile. No budget. Your order and review are the signal.
+        </p>
+        <blockquote>“A shared, dark laugh for resilience.”</blockquote>
+        <div class="cta-row">
+          <!-- Replace # with your Amazon (or store) link -->
+          <a class="btn primary" href="https://www.amazon.com/dp/B0FS352Z6J?utm_source=site&utm_medium=button&utm_campaign=launch" target="_blank" rel="noopener" id="buyLink">Send a Signal (Buy)</a>
+          <button class="btn" onclick="share('PT$D — First Edition', 'Help us juice the algorithm: buy, review, and share this link.')">Share This Page</button>
+          <button class="btn" onclick="copyText('buyLink', 'copyBtn')" id="copyBtn">Copy Buy Link</button>
+        </div>
+        <p class="note" style="margin-top:10px">Early <strong>orders</strong> + <strong>honest reviews</strong> teach the algorithm what matters. Print-on-demand means no author stash—your purchase is the release.</p>
+      </div>
+      <div>
+        <div class="card">
+          <img src="./cover.jpg" alt="PT$D cover" style="width:100%; border-radius:12px; aspect-ratio: 3/4; object-fit:cover; background:#0f1115;" />
+          <div class="flex" style="margin-top:12px; justify-content:space-between;">
+            <span class="small">Cover image placeholder (replace <span class="mono">cover.jpg</span>)</span>
+            <span class="tag">v1.0 • First Edition</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section class="grid two">
+      <div class="card">
+        <h2>Read: Sample Chapters (PDF)</h2>
+        <div class="pdf-list">
+          <!-- Replace hrefs with your actual file paths inside the repo -->
+          <a href="./samples/preface.pdf" onclick="event.preventDefault(); swapPreview('./samples/preface.pdf')">Preface <span class="tag">PDF</span></a>
+          <a href="./samples/intro.pdf" onclick="event.preventDefault(); swapPreview('./samples/intro.pdf')">Introduction <span class="tag">PDF</span></a>
+          <a href="./samples/chapter-1.pdf" onclick="event.preventDefault(); swapPreview('./samples/chapter-1.pdf')">Chapter 1 <span class="tag">PDF</span></a>
+        </div>
+        <div class="note" style="margin-top:10px">Watermark optional: add a footer in each PDF (e.g., “First Edition Sample • Buy: yourlink”).</div>
+      </div>
+      <div class="card">
+        <h2>Listen: Sample Audio</h2>
+        <div class="media">
+          <!-- Replace src paths with your audio files. MP3 is broadly supported. -->
+          <div>
+            <div class="flex" style="justify-content:space-between"><strong>Preface</strong><span class="tag">Audio</span></div>
+            <audio controls preload="none" style="width:100%">
+              <source src="./audio/preface.mp3" type="audio/mpeg" />
+            </audio>
+          </div>
+          <div>
+            <div class="flex" style="justify-content:space-between"><strong>Introduction</strong><span class="tag">Audio</span></div>
+            <audio controls preload="none" style="width:100%">
+              <source src="./audio/intro.mp3" type="audio/mpeg" />
+            </audio>
+          </div>
+          <div>
+            <div class="flex" style="justify-content:space-between"><strong>Chapter 1</strong><span class="tag">Audio</span></div>
+            <audio controls preload="none" style="width:100%">
+              <source src="./audio/chapter-1.mp3" type="audio/mpeg" />
+            </audio>
+          </div>
+        </div>
+        <div class="note" style="margin-top:10px">Keep it human. If audio is rough, say so; if polished, list mic/engineer credits.</div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Why First Edition Samples?</h2>
+      <p class="callout">This launch is a live experiment: friends + argument quality are the marketing. If the sample resonates, the rest of the book compounds it. We trade hype for coherence.</p>
+      <details style="margin-top:10px">
+        <summary>Document Control Notes</summary>
+        <ul>
+          <li>Label files clearly: <span class="mono">PTSD_FirstEdition_v1.0</span>. Bump minor versions for typo fixes.</li>
+          <li>Include a footer in PDFs: edition + link.</li>
+          <li>Add a CHANGELOG.md in the repo for transparency.</li>
+        </ul>
+      </details>
+    </section>
+
+    <section class="grid two">
+      <div class="card">
+        <h2>Launch Protocol (Quick)</h2>
+        <ol>
+          <li>Buy a copy today (velocity matters).</li>
+          <li>Leave a short, honest review (teaches the machine what to surface).</li>
+          <li>Share this page with 1–2 people who will care.</li>
+        </ol>
+        <div class="share-row" style="margin-top:10px">
+          <button class="btn" onclick="share('PT$D — First Edition', 'I just grabbed the book. Here’s the sample + buy link:')" aria-label="Share this page">Share</button>
+          <a class="btn" rel="noopener" target="_blank"
+             href="https://twitter.com/intent/tweet?text=First%20edition%20sample%20of%20PT%24D%20%E2%80%94%20preface%2C%20intro%2C%20audio.&url=https%3A%2F%2Fthomastron.github.io%2F%3Futm_source%3Dtwitter%26utm_medium%3Dsocial%26utm_campaign%3Dlaunch">
+            X / Twitter
+          </a>
+          <a class="btn" rel="noopener" target="_blank"
+             href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fthomastron.github.io%2F%3Futm_source%3Dlinkedin%26utm_medium%3Dsocial%26utm_campaign%3Dlaunch">
+            LinkedIn
+          </a>
+          <a class="btn" rel="noopener" target="_blank"
+             href="mailto:?subject=PT%24D%20%E2%80%94%20first%20edition%20sample&body=Here%E2%80%99s%20the%20preface%20%2B%20intro%20%2B%20audio%20samples%20I%20mentioned%3A%20https%3A%2F%2Fthomastron.github.io%2F%3Futm_source%3Demail%26utm_medium%3Dshare%26utm_campaign%3Dlaunch%0A%0ABuy%20link%3A%20https%3A%2F%2Fwww.amazon.com%2Fdp%2FB0FS352Z6J%3Futm_source%3Demail%26utm_medium%3Dshare%26utm_campaign%3Dlaunch">
+            Email
+          </a>
+        </div>
+        <p class="small" style="margin-top:8px">Insider note: early comments amplify discovery. Thanks for helping us train the recommendation layer.</p>
+      </div>
+      <div class="card">
+        <h2>Preview Window</h2>
+        <iframe id="pdfPreview" title="PDF preview" src="./samples/intro.pdf" style="width:100%; height:420px; border:1px solid rgba(255,255,255,0.1); border-radius:12px; background:#0f1115"></iframe>
+        <p class="small" style="margin-top:8px">If the PDF doesn’t render in-browser, it will download. All samples are available above.</p>
+      </div>
+    </section>
+
+    <footer>
+      <div class="flex" style="justify-content:space-between; flex-wrap:wrap; gap:8px">
+        <div>
+          © <span id="y"></span> YOUR NAME • First Edition • <a href="https://www.amazon.com/dp/B0FS352Z6J?utm_source=site&utm_medium=footer_link&utm_campaign=launch" target="_blank" rel="noopener">Buy</a>
+        </div>
+        <div class="small">Built for GitHub Pages • Single-file site • Professional tone with a satirical edge</div>
+      </div>
+      <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+    </footer>
+  </div>
 </body>
 </html>
-
