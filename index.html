@@ -177,28 +177,44 @@
 
     <section class="card">
       <h2>Listen: Sample Audio</h2>
-      <div class="media">
-        <div>
-          <div class="flex" style="justify-content:space-between"><strong>Preface</strong><span class="tag">Audio</span></div>
-          <audio controls preload="none" style="width:100%">
-            <source src="/audio/preface.mp3" type="audio/mpeg" />
-          </audio>
+      <div class="note" style="margin-bottom:10px">Simpler, single-player setup. Pick a track below; the player will load it. Direct links are provided for downloads and stubborn browsers.</div>
+
+      <div class="grid" style="gap:12px">
+        <div class="pdf-list">
+          <a href="https://thomastron.github.io/audio/preface.mp3" target="_blank" rel="noopener noreferrer" onclick="event.preventDefault(); playTrack('https://thomastron.github.io/audio/preface.mp3','Preface');">
+            <span><strong>Preface</strong> — MP3</span>
+            <span class="tag">Listen / Download</span>
+          </a>
+          <a href="https://thomastron.github.io/audio/intro.mp3" target="_blank" rel="noopener noreferrer" onclick="event.preventDefault(); playTrack('https://thomastron.github.io/audio/intro.mp3','Introduction');">
+            <span><strong>Introduction</strong> — MP3</span>
+            <span class="tag">Listen / Download</span>
+          </a>
+          <a href="https://thomastron.github.io/audio/ChapterExcerpt.MP3" target="_blank" rel="noopener noreferrer" onclick="event.preventDefault(); playTrack('https://thomastron.github.io/audio/ChapterExcerpt.MP3','Chapter Excerpt');">
+            <span><strong>Chapter Excerpt</strong> — MP3</span>
+            <span class="tag">Listen / Download</span>
+          </a>
         </div>
-        <div>
-          <div class="flex" style="justify-content:space-between"><strong>Introduction</strong><span class="tag">Audio</span></div>
-          <audio controls preload="none" style="width:100%">
-            <source src="/audio/intro.mp3" type="audio/mpeg" />
-          </audio>
-        </div>
-        <div>
-          <div class="flex" style="justify-content:space-between"><strong>Context + Chapter 2 Excerpt</strong><span class="tag">Audio • Excerpt</span></div>
-          <audio controls preload="none" style="width:100%">
-            <source src="/audio/ChapterExcerpt.MP3" type="audio/mpeg" />
+
+        <div class="card" style="background:rgba(255,255,255,0.03)">
+          <div class="flex" style="justify-content:space-between"><strong id="nowPlaying">Now Playing: —</strong><span class="tag">Audio</span></div>
+          <audio id="player" controls preload="none" style="width:100%" crossorigin="anonymous">
+            <source src="" type="audio/mpeg" />
+            Your browser does not support the audio element. <a href="https://thomastron.github.io/audio/preface.mp3">Download the MP3s here.</a>
           </audio>
         </div>
       </div>
-      <div class="note" style="margin-top:10px">Audio samples provided here. The full audiobook is in production and not yet available.</div>
+      <div class="small" style="margin-top:8px">If the player stalls, use the **Listen / Download** links to open the files directly in a new tab.</div>
     </section>
+    <script>
+      function playTrack(src, label){
+        const p = document.getElementById('player');
+        const np = document.getElementById('nowPlaying');
+        if(!p) return; 
+        if (p.src !== src) { p.pause(); p.src = src; }
+        if(np) np.textContent = 'Now Playing: ' + (label || src.split('/').pop());
+        p.play().catch(()=>{/* user gesture required; ignore */});
+      }
+    </script>
 
     <section class="card">
       <h2>Why First Edition Samples?</h2>
