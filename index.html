@@ -58,6 +58,7 @@
       .media { grid-template-columns: 1fr 1fr; }
       .buybox { grid-template-columns: 1fr 1fr; }
     }
+  .btn.xl{ font-size:18px; padding:16px 20px; }
   </style>
   <script>
     // --- Utilities ---
@@ -144,6 +145,16 @@
       </div>
     </header>
 
+    <section class="card preview-top">
+      <h2>Preview Window</h2>
+      <iframe id="pdfPreview" title="PDF preview" src="./samples/context-ch2-excerpt.pdf" style="width:100%; height:70vh; max-height:820px; border:1px solid rgba(255,255,255,0.1); border-radius:12px; background:#0f1115"></iframe>
+      <div class="cta-row" style="margin-top:14px">
+        <a class="btn primary xl" href="https://raw.githubusercontent.com/thomastron/thomastron.github.io/main/samples/PT%24D%20Sample.pdf" target="_blank" rel="noopener" download>Download Full Sample Packet (PDF)</a>
+        <a class="btn" href="https://github.com/thomastron/thomastron.github.io/blob/main/samples/PT%24D%20Sample.pdf" target="_blank" rel="noopener">View on GitHub</a>
+      </div>
+      <p class="small" style="margin-top:8px">The packet includes ~2 pages of Chapter 1 context + a curated Chapter 2 excerpt. Watermarked as First Edition Sample.</p>
+    </section>
+
     <section class="grid two">
       <div class="card">
         <h2>Read: Sample Chapters (PDF)</h2>
@@ -151,9 +162,9 @@
           <!-- Replace hrefs with your actual file paths inside the repo -->
           <a href="./samples/preface.pdf" onclick="event.preventDefault(); swapPreview('./samples/preface.pdf')">Preface <span class="tag">PDF</span></a>
           <a href="./samples/intro.pdf" onclick="event.preventDefault(); swapPreview('./samples/intro.pdf')">Introduction <span class="tag">PDF</span></a>
-          <a href="./samples/chapter-1.pdf" onclick="event.preventDefault(); swapPreview('./samples/chapter-1.pdf')">Chapter 1 <span class="tag">PDF</span></a>
+          <a href="./samples/context-ch2-excerpt.pdf" onclick="event.preventDefault(); swapPreview('./samples/context-ch2-excerpt.pdf')">Context (Ch.1: 2 pages) + Chapter 2 Excerpt <span class="tag">PDF • Excerpt</span></a>
         </div>
-        <div class="note" style="margin-top:10px">Watermark optional: add a footer in each PDF (e.g., “First Edition Sample • Buy: yourlink”).</div>
+        <div class="note" style="margin-top:10px">This combined packet provides minimal Chapter 1 context (2 pages) plus a curated Chapter 2 excerpt. It preserves the book's arc without giving away the full argument. File name: <span class="mono">context-ch2-excerpt.pdf</span>.</div>
       </div>
       <div class="card">
         <h2>Listen: Sample Audio</h2>
@@ -172,13 +183,13 @@
             </audio>
           </div>
           <div>
-            <div class="flex" style="justify-content:space-between"><strong>Chapter 1</strong><span class="tag">Audio</span></div>
+            <div class="flex" style="justify-content:space-between"><strong>Context + Chapter 2 Excerpt</strong><span class="tag">Audio • Excerpt</span></div>
             <audio controls preload="none" style="width:100%">
-              <source src="./audio/chapter-1.mp3" type="audio/mpeg" />
+              <source src="./audio/context-ch2-excerpt.mp3" type="audio/mpeg" />
             </audio>
           </div>
         </div>
-        <div class="note" style="margin-top:10px">Keep it human. If audio is rough, say so; if polished, list mic/engineer credits.</div>
+        <div class="note" style="margin-top:10px">Audio mirrors the PDF packet. Export as a single track named <span class="mono">context-ch2-excerpt.mp3</span> for consistency.</div>
       </div>
     </section>
 
@@ -220,12 +231,7 @@
         </div>
         <p class="small" style="margin-top:8px">Insider note: early comments amplify discovery. Thanks for helping us train the recommendation layer.</p>
       </div>
-      <div class="card">
-        <h2>Preview Window</h2>
-        <iframe id="pdfPreview" title="PDF preview" src="./samples/intro.pdf" style="width:100%; height:420px; border:1px solid rgba(255,255,255,0.1); border-radius:12px; background:#0f1115"></iframe>
-        <p class="small" style="margin-top:8px">If the PDF doesn’t render in-browser, it will download. All samples are available above.</p>
-      </div>
-    </section>
+      </section>
 
     <footer>
       <div class="flex" style="justify-content:space-between; flex-wrap:wrap; gap:8px">
