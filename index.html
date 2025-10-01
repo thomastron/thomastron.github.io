@@ -55,13 +55,12 @@
     @media (min-width: 820px) {
       header.hero { grid-template-columns: 1.2fr .8fr; }
       .grid.two { grid-template-columns: 1fr 1fr; }
-      .media { grid-template-columns: 1fr 1fr; }
+      .media { grid-template-columns: 1fr 1fr 1fr; }
       .buybox { grid-template-columns: 1fr 1fr; }
     }
-  .btn.xl{ font-size:18px; padding:16px 20px; }
+    .btn.xl{ font-size:18px; padding:16px 20px; }
   </style>
   <script>
-    // --- Utilities ---
     function copyText(id, btnId){
       const el = document.getElementById(id);
       const btn = document.getElementById(btnId);
@@ -71,7 +70,6 @@
         if(btn){ const old = btn.textContent; btn.textContent = 'Copied!'; setTimeout(()=> btn.textContent = old, 1400); }
       });
     }
-
     async function share(title, text){
       const url = window.location.href;
       if (navigator.share){
@@ -82,18 +80,6 @@
       const frame = document.getElementById('pdfPreview');
       frame.src = href; window.scrollTo({ top: frame.offsetTop - 80, behavior: 'smooth' });
     }
-
-    // --- Minimal smoke tests (non-invasive) ---
-    document.addEventListener('DOMContentLoaded', () => {
-      try {
-        console.assert(typeof copyText === 'function', 'copyText exists');
-        console.assert(typeof share === 'function', 'share exists');
-        const buy = document.getElementById('buyLink');
-        console.assert(buy && /amazon\.com\/dp\/B0FS352Z6J/.test(buy.href), 'buyLink href ok');
-      } catch (e) {
-        console.error('Self-test failed', e);
-      }
-    });
   </script>
   <!-- Schema.org Book (fill placeholders) -->
   <script type="application/ld+json">
@@ -127,7 +113,6 @@
         </p>
         <blockquote>“A shared, dark laugh for resilience.”</blockquote>
         <div class="cta-row">
-          <!-- Replace # with your Amazon (or store) link -->
           <a class="btn primary" href="https://www.amazon.com/dp/B0FS352Z6J?utm_source=site&utm_medium=button&utm_campaign=launch" target="_blank" rel="noopener" id="buyLink">Send a Signal (Buy)</a>
           <button class="btn" onclick="share('PT$D — First Edition', 'Help us juice the algorithm: buy, review, and share this link.')">Share This Page</button>
           <button class="btn" onclick="copyText('buyLink', 'copyBtn')" id="copyBtn">Copy Buy Link</button>
@@ -138,7 +123,6 @@
         <div class="card">
           <img src="./cover.jpg" alt="PT$D cover" style="width:100%; border-radius:12px; aspect-ratio: 3/4; object-fit:cover; background:#0f1115;" />
           <div class="flex" style="margin-top:12px; justify-content:space-between;">
-            <span class="small">Cover image placeholder (replace <span class="mono">cover.jpg</span>)</span>
             <span class="tag">v1.0 • First Edition</span>
           </div>
         </div>
@@ -148,43 +132,32 @@
     <section class="card preview-top">
       <h2>Preview Window</h2>
       <iframe id="pdfPreview" title="PDF preview" src="./samples/PT%24D%20Sample.pdf" style="width:100%; height:70vh; max-height:820px; border:1px solid rgba(255,255,255,0.1); border-radius:12px; background:#0f1115"></iframe>
-      
-      <p class="small" style="margin-top:8px">The packet includes ~2 pages of Chapter 1 context + a curated Chapter 2 excerpt. Watermarked as First Edition Sample.</p>
+      <p class="small" style="margin-top:8px">The packet includes Preface, Introduction, minimal Chapter 1 context, and a curated Chapter 2 excerpt. Watermarked as First Edition Sample.</p>
     </section>
 
-    <section class="grid two">
-      <div class="card">
-        <h2>Read: Sample Chapters (PDF)</h2>
-        <div class="pdf-list">
-          <a href="./samples/PT%24D%20Sample.pdf" onclick="event.preventDefault(); swapPreview('./samples/PT%24D%20Sample.pdf')">PT$D Sample <span class="tag">PDF</span></a>
+    <section class="card">
+      <h2>Listen: Sample Audio</h2>
+      <div class="media">
+        <div>
+          <div class="flex" style="justify-content:space-between"><strong>Preface</strong><span class="tag">Audio</span></div>
+          <audio controls preload="none" style="width:100%">
+            <source src="./audio/preface.mp3" type="audio/mpeg" />
+          </audio>
         </div>
-        <div class="note" style="margin-top:10px">Single consolidated packet (Preface, Introduction, minimal Ch.1 context, curated Ch.2 excerpt). File name: <span class="mono">PT$D Sample.pdf</span>.</div>
-      </div>
-      <div class="card">
-        <h2>Listen: Sample Audio</h2>
-        <div class="media">
-          <!-- Replace src paths with your audio files. MP3 is broadly supported. -->
-          <div>
-            <div class="flex" style="justify-content:space-between"><strong>Preface</strong><span class="tag">Audio</span></div>
-            <audio controls preload="none" style="width:100%">
-              <source src="./audio/preface.mp3" type="audio/mpeg" />
-            </audio>
-          </div>
-          <div>
-            <div class="flex" style="justify-content:space-between"><strong>Introduction</strong><span class="tag">Audio</span></div>
-            <audio controls preload="none" style="width:100%">
-              <source src="./audio/intro.mp3" type="audio/mpeg" />
-            </audio>
-          </div>
-          <div>
-            <div class="flex" style="justify-content:space-between"><strong>Context + Chapter 2 Excerpt</strong><span class="tag">Audio • Excerpt</span></div>
-            <audio controls preload="none" style="width:100%">
-              <source src="./audio/context-ch2-excerpt.mp3" type="audio/mpeg" />
-            </audio>
-          </div>
+        <div>
+          <div class="flex" style="justify-content:space-between"><strong>Introduction</strong><span class="tag">Audio</span></div>
+          <audio controls preload="none" style="width:100%">
+            <source src="./audio/intro.mp3" type="audio/mpeg" />
+          </audio>
         </div>
-        <div class="note" style="margin-top:10px">Audio mirrors the PDF packet. Export as a single track named <span class="mono">context-ch2-excerpt.mp3</span> for consistency.</div>
+        <div>
+          <div class="flex" style="justify-content:space-between"><strong>Context + Chapter 2 Excerpt</strong><span class="tag">Audio • Excerpt</span></div>
+          <audio controls preload="none" style="width:100%">
+            <source src="./audio/context-ch2-excerpt.mp3" type="audio/mpeg" />
+          </audio>
+        </div>
       </div>
+      <div class="note" style="margin-top:10px">Audio samples provided here. The full audiobook is in production and not yet available.</div>
     </section>
 
     <section class="card">
@@ -225,17 +198,11 @@
         </div>
         <p class="small" style="margin-top:8px">Insider note: early comments amplify discovery. Thanks for helping us train the recommendation layer.</p>
       </div>
-      </section>
+    </section>
 
     <footer>
       <div class="flex" style="justify-content:space-between; flex-wrap:wrap; gap:8px">
         <div>
           © <span id="y"></span> YOUR NAME • First Edition • <a href="https://www.amazon.com/dp/B0FS352Z6J?utm_source=site&utm_medium=footer_link&utm_campaign=launch" target="_blank" rel="noopener">Buy</a>
         </div>
-        <div class="small">Built for GitHub Pages • Single-file site • Professional tone with a satirical edge</div>
-      </div>
-      <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
-    </footer>
-  </div>
-</body>
-</html>
+        <div class="small">Built for
