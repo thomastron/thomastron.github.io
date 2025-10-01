@@ -208,25 +208,50 @@
 
     <!-- Audio controller + self-tests -->
     <script>
-      function playTrack(src, label){
-        const p = document.getElementById('player');
-        const np = document.getElementById('nowPlaying');
-        if(!p) return;
-        const abs = new URL(src, window.location.href).href;
-        try {
-          if (p.src !== abs) { p.pause(); p.src = abs; p.load(); }
-          if(np) np.textContent = 'Now Playing: ' + (label || abs.split('/').pop());
-          const playPromise = p.play();
-          if (playPromise && typeof playPromise.catch === 'function') {
-            playPromise.catch(()=>{/* ignore autoplay errors */});
-          }
-        } catch (e) {
-          if (np) np.textContent = 'Now Playing: (failed to load)';
-          console.error('Audio load error:', e);
-        }
+      // Build a robust source list: prefer GitHub Pages, fall back to raw.githubusercontent if needed
+      function buildSources(path){
+        const pages = new URL(path, window.location.origin).href; // e.g., https://thomastron.github.io/audio/Preface.mp3
+        const filename = path.split('/').pop();
+        const raw = `https://raw.githubusercontent.com/thomastron/thomastron.github.io/main/audio/${filename}`;
+        return [pages, raw];
       }
 
-      // Minimal self-tests (visible only in console)
+      function playTrack(pathOrUrl, label){
+        const p = document.getElementById('player');
+        const np = document.getElementById('nowPlaying');
+        const debug = document.getElementById('audioDebug');
+        if(!p) return;
+
+        // Accept either a path ("/audio/Preface.mp3") or a full URL
+        const sources = pathOrUrl.startsWith('http') ? [pathOrUrl] : buildSources(pathOrUrl);
+        let idx = 0;
+
+        const tryPlay = ()=>{
+          const src = sources[idx];
+          if(!src){ if(np) np.textContent = 'Now Playing: (failed)'; return; }
+          p.pause(); p.src = src; p.load();
+          if(np) np.textContent = 'Now Playing: ' + (label || src.split('/').pop());
+          if(debug) debug.textContent = 'Source: ' + src;
+          const prom = p.play();
+          if (prom && typeof prom.catch === 'function') {
+            prom.catch(()=>{/* user gesture or autoplay; ignore */});
+          }
+        };
+
+        // On error, try the next source
+        const onError = ()=>{
+          idx += 1; tryPlay();
+        };
+
+        // Remove previous error handler to avoid stacking
+        p.removeEventListener('error', p.__onErr || (()=>{}));
+        p.__onErr = onError;
+        p.addEventListener('error', onError, { once:false });
+
+        tryPlay();
+      }
+
+      // Minimal self-tests (console-only)
       window.addEventListener('DOMContentLoaded', ()=>{
         console.assert(typeof playTrack === 'function', 'playTrack is not defined');
         const player = document.getElementById('player');
