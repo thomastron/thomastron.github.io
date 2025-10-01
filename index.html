@@ -170,9 +170,27 @@
     </header>
 
     <section class="card preview-top">
-      <h2>Preview Window</h2>
-      <iframe id="pdfPreview" title="PDF preview" src="./samples/PT%24D%20Sample.pdf" loading="lazy" style="width:100%; height:70vh; max-height:820px; border:1px solid rgba(255,255,255,0.1); border-radius:12px; background:#0f1115"></iframe>
-      <p class="small" style="margin-top:8px">The packet includes Preface, Introduction, minimal Chapter 1 context, and a curated Chapter 2 excerpt. Watermarked as First Edition Sample. <noscript><a href="./samples/PT%24D%20Sample.pdf">Open the PDF sample</a></noscript></p>
+      <h2>Sample PDF</h2>
+      <p class="note">Mobile-first approach: open the PDF in a new tab (best experience on phones). Desktop users can optionally toggle an inline preview.</p>
+
+      <div class="cta-row" style="margin-bottom:10px">
+        <a class="btn primary xl" href="/samples/PT%24D%20Sample.pdf" target="_blank" rel="noopener noreferrer" type="application/pdf">Open PDF in New Tab</a>
+        <a class="btn xl" href="/samples/PT%24D%20Sample.pdf" download="PTSD_FirstEdition_Sample.pdf">Download PDF</a>
+      </div>
+
+      <details>
+        <summary>Show Inline Preview (Desktop)</summary>
+        <div class="small" style="margin:8px 0 12px">Inline preview may be clunky on some mobile browsers. Use the buttons above if it stalls.</div>
+        <iframe id="pdfPreview" title="PDF preview" src="/samples/PT%24D%20Sample.pdf" loading="lazy" style="width:100%; height:70vh; max-height:820px; border:1px solid rgba(255,255,255,0.1); border-radius:12px; background:#0f1115"></iframe>
+        <p class="small" style="margin-top:8px">The packet includes Preface, Introduction, minimal Chapter 1 context, and a curated Chapter 2 excerpt. Watermarked as First Edition Sample. <noscript><a href="/samples/PT%24D%20Sample.pdf">Open the PDF sample</a></noscript></p>
+      </details>
+
+      <style>
+        /* Prefer links over iframes on narrow screens */
+        @media (max-width: 680px){
+          #pdfPreview { height: 65vh; }
+        }
+      </style>
     </section>
 
     <section class="card">
