@@ -199,25 +199,44 @@
           <div class="flex" style="justify-content:space-between"><strong id="nowPlaying">Now Playing: —</strong><span class="tag">Audio</span></div>
           <audio id="player" controls preload="none" style="width:100%" crossorigin="anonymous">
             <source src="" type="audio/mpeg" />
-            Your browser does not support the audio element. <a href="/audio/Preface.mp3">Download the MP3s here.<\/a>
+            Your browser does not support the audio element. <a href="/audio/Preface.mp3">Download the MP3s here.</a>
           </audio>
         </div>
       </div>
       <div class="small" style="margin-top:8px">If the player stalls, use the **Listen / Download** links to open the files directly in a new tab.</div>
     </section>
+
+    <!-- Audio controller + self-tests -->
     <script>
       function playTrack(src, label){
         const p = document.getElementById('player');
         const np = document.getElementById('nowPlaying');
         if(!p) return;
         const abs = new URL(src, window.location.href).href;
-        if (p.src !== abs) { p.pause(); p.src = abs; }
-        if(np) np.textContent = 'Now Playing: ' + (label || abs.split('/').pop());
-        p.play().catch(()=>{});
+        try {
+          if (p.src !== abs) { p.pause(); p.src = abs; p.load(); }
+          if(np) np.textContent = 'Now Playing: ' + (label || abs.split('/').pop());
+          const playPromise = p.play();
+          if (playPromise && typeof playPromise.catch === 'function') {
+            playPromise.catch(()=>{/* ignore autoplay errors */});
+          }
+        } catch (e) {
+          if (np) np.textContent = 'Now Playing: (failed to load)';
+          console.error('Audio load error:', e);
+        }
       }
-        if(np) np.textContent = 'Now Playing: ' + (label || src.split('/').pop());
-        p.play().catch(()=>{/* user gesture required; ignore */});
-      }
+
+      // Minimal self-tests (visible only in console)
+      window.addEventListener('DOMContentLoaded', ()=>{
+        console.assert(typeof playTrack === 'function', 'playTrack is not defined');
+        const player = document.getElementById('player');
+        console.assert(!!player, 'Audio <audio id="player"> is missing');
+        const names = ['Preface.mp3','Introduction.mp3','ChapterExcerpt.MP3'];
+        names.forEach(n=>{
+          const a = Array.from(document.querySelectorAll('.pdf-list a')).find(el => (el.getAttribute('href')||'').endsWith(n));
+          console.assert(!!a, 'Missing link for ' + n);
+        });
+      });
     </script>
 
     <section class="card">
@@ -252,7 +271,7 @@
             LinkedIn
           </a>
           <a class="btn" rel="noopener noreferrer" target="_blank"
-             href="mailto:?subject=PT%24D%20%E2%80%94%20first%20edition%20sample&body=Here%E2%80%99s%20the%20preface%20%2B%20intro%20%2B%20audio%20samples%20I%20mentioned%3A%20https%3A%2F%2Fthomastron.github.io%2F%3Futm_source%3Demail%26utm_medium%3Dshare%26utm_campaign%3Dlaunch%0A%0ABuy%20link%3A%20https%3A%2F%2Fwww.amazon.com%2Fdp%2FB0FS352Z6J%3Futm_source%3Demail%26utm_medium%3Dshare%26utm_campaign%3Dlaunch">
+             href="mailto:?subject=PT%24D%20%E2%80%94%20first%20edition%20sample&body=Here%E2%80%99s%20the%20preface%20%2B%20intro%20%2B%20audio%20samples%20I%20mentioned%3A%20https%3A%2F%2Fthomastron.github.io%2F%3Futm_source%3Demail%26utm_medium%3Dshare%26utm_campaign%3Dlaunch">
             Email
           </a>
         </div>
