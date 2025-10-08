@@ -78,6 +78,23 @@
     .btn.xl{ font-size:18px; padding:16px 20px; }
     /* Focus styles for accessibility */
     :focus-visible { outline: 2px dashed var(--accent); outline-offset: 2px; }
+
+    /* Full-width Appendix C image (Option 1 containment) */
+.hero-image {
+  background: #0b0c10;
+  padding: 24px 0;
+  text-align: center; /* centers the image when max-width kicks in */
+}
+
+.hero-image img {
+  width: 100%;
+  height: auto;
+  max-width: 1920px; /* set to the image’s native pixel width if different */
+  margin: 0 auto;
+  display: block;
+  border-radius: 0;
+  background: #0f1115;
+}
   </style>
 
   <script>
@@ -283,15 +300,16 @@
     </script>
   </div><!-- closes .wrap -->
 
-  <section class="hero-image">
-    <a href="https://thomastron.github.io/samples/AppendixC.jpg" target="_blank" rel="noopener noreferrer">
-      <img
-        src="https://thomastron.github.io/samples/AppendixC.jpg"
-        alt="Appendix C visual sample from PT$D"
-        loading="lazy"
-      />
-    </a>
-  </section>
+<section class="hero-image">
+  <a href="https://thomastron.github.io/samples/AppendixC.jpg" target="_blank" rel="noopener noreferrer">
+    <img
+      src="https://thomastron.github.io/samples/AppendixC.jpg"
+      alt="Appendix C visual sample from PT$D"
+      loading="lazy"
+    />
+  </a>
+</section>
+
 
 
   <div class="wrap">
