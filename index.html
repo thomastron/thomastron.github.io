@@ -88,6 +88,71 @@
       transform: scale(1.05); /* subtle hover effect */
     }
 
+    /* Full-width Appendix C image */
+    .appendix-hero {
+      margin: 40px 0;
+      text-align: center;
+    }
+    .appendix-hero img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 12px;
+    }
+
+    /* PURE CSS LIGHTBOX STYLES */
+    .lightbox {
+        /* Hide by default */
+        visibility: hidden;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        
+        /* Full screen overlay */
+        position: fixed;
+        z-index: 999; 
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.9);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        backdrop-filter: blur(5px);
+    }
+    .lightbox:target {
+        visibility: visible;
+        opacity: 1;
+    }
+    .lightbox-content {
+        max-width: 90%;
+        max-height: 90%;
+        padding: 24px;
+    }
+    .lightbox-content img {
+        display: block;
+        max-width: 100%;
+        max-height: 100vh;
+        height: auto;
+        border-radius: 8px;
+    }
+    .lightbox-close {
+        position: absolute;
+        top: 20px;
+        right: 30px;
+        font-size: 30px;
+        font-weight: bold;
+        color: var(--ink);
+        text-decoration: none;
+        cursor: pointer;
+        opacity: 0.7;
+        transition: opacity 0.2s;
+        line-height: 1;
+    }
+    .lightbox-close:hover {
+        opacity: 1;
+        text-decoration: none;
+    }
+
     @media (min-width: 820px) {
       header.hero { grid-template-columns: 1.2fr .8fr; }
       .grid.two { grid-template-columns: 1fr 1fr; }
@@ -95,29 +160,12 @@
       .buybox { grid-template-columns: 1fr 1fr; }
       /* New grid template for the gallery on wider screens */
       .image-gallery {
-        grid-template-columns: repeat(6, 1fr); /* 6 columns for 6 images */
+        grid-template-columns: repeat(5, 1fr); /* 5 columns for 5 images */
       }
     }
     .btn.xl{ font-size:18px; padding:16px 20px; }
     /* Focus styles for accessibility */
     :focus-visible { outline: 2px dashed var(--accent); outline-offset: 2px; }
-
-    /* Full-width Appendix C image (Option 1 containment) - REMOVED/COMMENTED OUT */
-/* .hero-image {
-  background: #0b0c10;
-  padding: 24px 0;
-  text-align: center; 
-}
-
-.hero-image img {
-  width: 100%;
-  height: auto;
-  max-width: 1920px; 
-  margin: 0 auto;
-  display: block;
-  border-radius: 0;
-  background: #0f1115;
-} */
   </style>
 
   <script>
@@ -145,6 +193,13 @@
     // set year in footer
     window.addEventListener('DOMContentLoaded', ()=>{
       const y = document.getElementById('y'); if (y) y.textContent = new Date().getFullYear();
+      // Close lightbox on hash change (improves navigation)
+      window.addEventListener('hashchange', function() {
+          if(window.location.hash.indexOf('lightbox') === -1) {
+              // Optionally smooth scroll to top of page if lightbox closes
+              // window.scrollTo({ top: 0, behavior: 'smooth' }); 
+          }
+      });
     });
   </script>
 
@@ -319,36 +374,78 @@
         });
       });
     </script>
-  </div><div class="wrap">
+  </div><section class="appendix-hero">
+    <a href="https://thomastron.github.io/images/AppendixC.jpg" target="_blank" rel="noopener noreferrer" aria-label="View Appendix C full size in new tab">
+        <img
+            src="/images/AppendixC.jpg"
+            alt="Appendix C visual sample from PT$D"
+            loading="lazy"
+        />
+    </a>
+</section>
+<div class="wrap">
   <section>
     <h2>Visual Appendix</h2>
     <div class="image-gallery">
-      <a href="https://thomastron.github.io/images/AppendixC.jpg" target="_blank" rel="noopener noreferrer" class="image-tile" aria-label="View Appendix C">
-        <img src="/images/AppendixC.jpg" alt="Appendix C visual sample from PT$D" loading="lazy" />
-      </a>
       
-      <a href="https://thomastron.github.io/images/InfiniteApes.jpg" target="_blank" rel="noopener noreferrer" class="image-tile" aria-label="View Infinite Apes Diagram">
+      <a href="#lightbox-InfiniteApes" rel="noopener noreferrer" class="image-tile" aria-label="View Infinite Apes Diagram">
         <img src="/images/InfiniteApes.jpg" alt="Infinite Apes Diagram" loading="lazy" />
       </a>
       
-      <a href="https://thomastron.github.io/images/Sasquatch.jpg" target="_blank" rel="noopener noreferrer" class="image-tile" aria-label="View Sasquatch Image">
+      <a href="#lightbox-Sasquatch" rel="noopener noreferrer" class="image-tile" aria-label="View Sasquatch Image">
         <img src="/images/Sasquatch.jpg" alt="Sasquatch visual" loading="lazy" />
       </a>
       
-      <a href="https://thomastron.github.io/images/Singularity.jpg" target="_blank" rel="noopener noreferrer" class="image-tile" aria-label="View Singularity Graphic">
+      <a href="#lightbox-Singularity" rel="noopener noreferrer" class="image-tile" aria-label="View Singularity Graphic">
         <img src="/images/Singularity.jpg" alt="Singularity graphic" loading="lazy" />
       </a>
       
-      <a href="https://thomastron.github.io/images/Socratic.jpg" target="_blank" rel="noopener noreferrer" class="image-tile" aria-label="View Socratic Quote">
+      <a href="#lightbox-Socratic" rel="noopener noreferrer" class="image-tile" aria-label="View Socratic Quote">
         <img src="/images/Socratic.jpg" alt="Socratic quote visual" loading="lazy" />
       </a>
       
-      <a href="https://thomastron.github.io/images/Suite.jpg" target="_blank" rel="noopener noreferrer" class="image-tile" aria-label="View Suite Layout">
+      <a href="#lightbox-Suite" rel="noopener noreferrer" class="image-tile" aria-label="View Suite Layout">
         <img src="/images/Suite.jpg" alt="Suite layout visual" loading="lazy" />
       </a>
     </div>
   </section>
-<section class="card">
+<div id="lightbox-InfiniteApes" class="lightbox">
+    <div class="lightbox-content">
+      <a href="#" class="lightbox-close">&times;</a>
+      <img src="/images/InfiniteApes.jpg" alt="Infinite Apes Diagram" />
+    </div>
+  </div>
+
+  <div id="lightbox-Sasquatch" class="lightbox">
+    <div class="lightbox-content">
+      <a href="#" class="lightbox-close">&times;</a>
+      <img src="/images/Sasquatch.jpg" alt="Sasquatch visual" />
+    </div>
+  </div>
+
+  <div id="lightbox-Singularity" class="lightbox">
+    <div class="lightbox-content">
+      <a href="#" class="lightbox-close">&times;</a>
+      <img src="/images/Singularity.jpg" alt="Singularity graphic" />
+    </div>
+  </div>
+
+  <div id="lightbox-Socratic" class="lightbox">
+    <div class="lightbox-content">
+      <a href="#" class="lightbox-close">&times;</a>
+      <img src="/images/Socratic.jpg" alt="Socratic quote visual" />
+    </div>
+  </div>
+
+  <div id="lightbox-Suite" class="lightbox">
+    <div class="lightbox-content">
+      <a href="#" class="lightbox-close">&times;</a>
+      <img src="/images/Suite.jpg" alt="Suite layout visual" />
+    </div>
+  </div>
+
+
+  <section class="card">
     <h2>Why First Edition Samples?</h2>
     <p class="callout">This launch is a live experiment: friends + argument quality are the marketing. If the sample resonates, the rest of the book compounds it. We trade hype for coherence.</p>
     <details style="margin-top:10px">
