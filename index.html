@@ -8,31 +8,26 @@
   <meta name="robots" content="index,follow" />
   <meta name="theme-color" content="#0b0c10" />
 
-  <!-- Canonical -->
   <link rel="canonical" href="https://thomastron.github.io/" />
 
-  <!-- Favicons (replace with your own sizes/paths) -->
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
-  <!-- Open Graph / Social -->
   <meta property="og:title" content="PT$D — First Edition" />
   <meta property="og:description" content="Sample chapters (text + audio). This first edition is print-on-demand—your order is the launch." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://thomastron.github.io/" />
-  <meta property="og:image" content="https://thomastron.github.io/cover.jpg" />
+  <meta property="og:image" content="https://thomastron.github.io/images/cover.jpg" /> 
   <meta property="og:image:alt" content="PT$D cover" />
   <meta property="og:site_name" content="PT$D" />
 
-  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="PT$D — First Edition" />
   <meta name="twitter:description" content="Sample chapters (text + audio). This first edition is print-on-demand—your order is the launch." />
-  <meta name="twitter:image" content="https://thomastron.github.io/cover.jpg" />
+  <meta name="twitter:image" content="https://thomastron.github.io/images/cover.jpg" /> 
 
-  <!-- Preload hero image to avoid CLS -->
-  <link rel="preload" as="image" href="./cover.jpg" imagesrcset="./cover.jpg" imagesizes="(max-width: 820px) 100vw, 40vw" />
+  <link rel="preload" as="image" href="/images/cover.jpg" imagesrcset="/images/cover.jpg" imagesizes="(max-width: 820px) 100vw, 40vw" />
 
   <style>
     :root { --bg: #0b0c10; --panel: #121318; --ink: #e6e7eb; --muted: #a7adba; --accent: #7dd3fc; --accent2: #a78bfa; --ok: #34d399; --warn: #fbbf24; }
@@ -69,32 +64,60 @@
     details > summary { cursor: pointer; font-weight: 600; }
     blockquote{ margin: 0; padding: 12px 14px; border-left: 3px solid var(--accent2); color: var(--muted); font-style: italic; background: rgba(255,255,255,0.02); border-radius: 8px; }
 
+    /* New styles for the image tile gallery */
+    .image-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 16px;
+      margin-top: 28px;
+    }
+    .image-tile {
+      display: block;
+      overflow: hidden;
+      border-radius: 12px;
+      line-height: 0; /* Important to remove extra spacing below images */
+    }
+    .image-tile img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s ease-in-out;
+    }
+    .image-tile img:hover {
+      transform: scale(1.05); /* subtle hover effect */
+    }
+
     @media (min-width: 820px) {
       header.hero { grid-template-columns: 1.2fr .8fr; }
       .grid.two { grid-template-columns: 1fr 1fr; }
       .media { grid-template-columns: 1fr 1fr 1fr; }
       .buybox { grid-template-columns: 1fr 1fr; }
+      /* New grid template for the gallery on wider screens */
+      .image-gallery {
+        grid-template-columns: repeat(6, 1fr); /* 6 columns for 6 images */
+      }
     }
     .btn.xl{ font-size:18px; padding:16px 20px; }
     /* Focus styles for accessibility */
     :focus-visible { outline: 2px dashed var(--accent); outline-offset: 2px; }
 
-    /* Full-width Appendix C image (Option 1 containment) */
-.hero-image {
+    /* Full-width Appendix C image (Option 1 containment) - REMOVED/COMMENTED OUT */
+/* .hero-image {
   background: #0b0c10;
   padding: 24px 0;
-  text-align: center; /* centers the image when max-width kicks in */
+  text-align: center; 
 }
 
 .hero-image img {
   width: 100%;
   height: auto;
-  max-width: 1920px; /* set to the image’s native pixel width if different */
+  max-width: 1920px; 
   margin: 0 auto;
   display: block;
   border-radius: 0;
   background: #0f1115;
-}
+} */
   </style>
 
   <script>
@@ -125,7 +148,6 @@
     });
   </script>
 
-  <!-- Schema.org Book (fill placeholders) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -136,7 +158,7 @@
     "datePublished": "2025-09-20",
     "publisher": {"@type":"Organization","name":"Thomas Dwyer"},
     "description": "Sample chapters and launch info for PT$D. Print-on-demand first edition.",
-    "image": "https://thomastron.github.io/cover.jpg",
+    "image": "https://thomastron.github.io/images/cover.jpg",
     "url": "https://thomastron.github.io/",
     "isbn": "979-8218797607",
     "inLanguage": "en",
@@ -178,7 +200,7 @@
       </div>
       <div>
         <div class="card">
-          <img src="./cover.jpg" alt="PT$D cover" style="width:100%; height:auto; border-radius:12px; display:block; background:#0f1115;" fetchpriority="high" />
+          <img src="/images/cover.jpg" alt="PT$D cover" style="width:100%; height:auto; border-radius:12px; display:block; background:#0f1115;" fetchpriority="high" />
           <div class="flex" style="margin-top:12px; justify-content:space-between;">
             <span class="tag" aria-label="Version">v1.0 • First Edition</span>
           </div>
@@ -241,7 +263,6 @@
       <div class="small" style="margin-top:8px">If the player stalls, use the Listen / Download links to open the files directly in a new tab.</div>
     </section>
 
-    <!-- Audio controller + self-tests -->
     <script>
       // Build a robust source list: prefer GitHub Pages, fall back to raw.githubusercontent if needed
       function buildSources(path){
@@ -298,68 +319,83 @@
         });
       });
     </script>
-  </div><!-- closes .wrap -->
+  </div><div class="wrap">
+  <section>
+    <h2>Visual Appendix</h2>
+    <div class="image-gallery">
+      <a href="https://thomastron.github.io/images/AppendixC.jpg" target="_blank" rel="noopener noreferrer" class="image-tile" aria-label="View Appendix C">
+        <img src="/images/AppendixC.jpg" alt="Appendix C visual sample from PT$D" loading="lazy" />
+      </a>
+      
+      <a href="https://thomastron.github.io/images/InfiniteApes.jpg" target="_blank" rel="noopener noreferrer" class="image-tile" aria-label="View Infinite Apes Diagram">
+        <img src="/images/InfiniteApes.jpg" alt="Infinite Apes Diagram" loading="lazy" />
+      </a>
+      
+      <a href="https://thomastron.github.io/images/Sasquatch.jpg" target="_blank" rel="noopener noreferrer" class="image-tile" aria-label="View Sasquatch Image">
+        <img src="/images/Sasquatch.jpg" alt="Sasquatch visual" loading="lazy" />
+      </a>
+      
+      <a href="https://thomastron.github.io/images/Singularity.jpg" target="_blank" rel="noopener noreferrer" class="image-tile" aria-label="View Singularity Graphic">
+        <img src="/images/Singularity.jpg" alt="Singularity graphic" loading="lazy" />
+      </a>
+      
+      <a href="https://thomastron.github.io/images/Socratic.jpg" target="_blank" rel="noopener noreferrer" class="image-tile" aria-label="View Socratic Quote">
+        <img src="/images/Socratic.jpg" alt="Socratic quote visual" loading="lazy" />
+      </a>
+      
+      <a href="https://thomastron.github.io/images/Suite.jpg" target="_blank" rel="noopener noreferrer" class="image-tile" aria-label="View Suite Layout">
+        <img src="/images/Suite.jpg" alt="Suite layout visual" loading="lazy" />
+      </a>
+    </div>
+  </section>
+<section class="card">
+    <h2>Why First Edition Samples?</h2>
+    <p class="callout">This launch is a live experiment: friends + argument quality are the marketing. If the sample resonates, the rest of the book compounds it. We trade hype for coherence.</p>
+    <details style="margin-top:10px">
+      <summary>Document Control Notes</summary>
+      <ul>
+        <li>Label files clearly: <span class="mono">PTSD_FirstEdition_v1.0</span>. Bump minor versions for typo fixes.</li>
+        <li>Include a footer in PDFs: edition + link.</li>
+        <li>Add a CHANGELOG.md in the repo for transparency.</li>
+      </ul>
+    </details>
+  </section>
 
-<section class="hero-image">
-  <img
-    src="https://thomastron.github.io/samples/AppendixC.jpg"
-    alt="Appendix C visual sample from PT$D"
-    loading="lazy"
-  />
-</section>
-
-
-
-
-  <div class="wrap">
-    <section class="card">
-      <h2>Why First Edition Samples?</h2>
-      <p class="callout">This launch is a live experiment: friends + argument quality are the marketing. If the sample resonates, the rest of the book compounds it. We trade hype for coherence.</p>
-      <details style="margin-top:10px">
-        <summary>Document Control Notes</summary>
-        <ul>
-          <li>Label files clearly: <span class="mono">PTSD_FirstEdition_v1.0</span>. Bump minor versions for typo fixes.</li>
-          <li>Include a footer in PDFs: edition + link.</li>
-          <li>Add a CHANGELOG.md in the repo for transparency.</li>
-        </ul>
-      </details>
-    </section>
-
-    <section class="grid two">
-      <div class="card">
-        <h2>Launch Protocol (Quick)</h2>
-        <ol>
-          <li>Buy a copy today (velocity matters).</li>
-          <li>Leave a short, honest review (teaches the machine what to surface).</li>
-          <li>Share this page with 1–2 people who will care.</li>
-        </ol>
-        <div class="share-row" style="margin-top:10px">
-          <button class="btn" type="button" onclick="share('PT$D — First Edition', 'I just grabbed the book. Here’s the sample + buy link:')" aria-label="Share this page">Share</button>
-          <a class="btn" rel="noopener noreferrer" target="_blank"
-             href="https://twitter.com/intent/tweet?text=First%20edition%20sample%20of%20PT%24D%20%E2%80%94%20preface%2C%20intro%2C%20audio.&url=https%3A%2F%2Fthomastron.github.io%2F%3Futm_source%3Dtwitter%26utm_medium%3Dsocial%26utm_campaign%3Dlaunch">
-            X / Twitter
-          </a>
-          <a class="btn" rel="noopener noreferrer" target="_blank"
-             href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fthomastron.github.io%2F%3Futm_source%3Dlinkedin%26utm_medium%3Dsocial%26utm_campaign%3Dlaunch">
-            LinkedIn
-          </a>
-          <a class="btn" rel="noopener noreferrer" target="_blank"
-             href="mailto:?subject=PT%24D%20%E2%80%94%20first%20edition%20sample&body=Here%E2%80%99s%20the%20preface%20%2B%20intro%20%2B%20audio%20samples%20I%20mentioned%3A%20https%3A%2F%2Fthomastron.github.io%2F%3Futm_source%3Demail%26utm_medium%3Dshare%26utm_campaign%3Dlaunch">
-            Email
-          </a>
-        </div>
-        <p class="small" style="margin-top:8px">Insider note: early comments amplify discovery. Thanks for helping us train the recommendation layer.</p>
+  <section class="grid two">
+    <div class="card">
+      <h2>Launch Protocol (Quick)</h2>
+      <ol>
+        <li>Buy a copy today (velocity matters).</li>
+        <li>Leave a short, honest review (teaches the machine what to surface).</li>
+        <li>Share this page with 1–2 people who will care.</li>
+      </ol>
+      <div class="share-row" style="margin-top:10px">
+        <button class="btn" type="button" onclick="share('PT$D — First Edition', 'I just grabbed the book. Here’s the sample + buy link:')" aria-label="Share this page">Share</button>
+        <a class="btn" rel="noopener noreferrer" target="_blank"
+            href="https://twitter.com/intent/tweet?text=First%20edition%20sample%20of%20PT%24D%20%E2%80%94%20preface%2C%20intro%2C%20audio.&url=https%3A%2F%2Fthomastron.github.io%2F%3Futm_source%3Dtwitter%26utm_medium%3Dsocial%26utm_campaign%3Dlaunch">
+          X / Twitter
+        </a>
+        <a class="btn" rel="noopener noreferrer" target="_blank"
+            href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fthomastron.github.io%2F%3Futm_source%3Dlinkedin%26utm_medium%3Dsocial%26utm_campaign%3Dlaunch">
+          LinkedIn
+        </a>
+        <a class="btn" rel="noopener noreferrer" target="_blank"
+            href="mailto:?subject=PT%24D%20%E2%80%94%20first%20edition%20sample&body=Here%E2%80%99s%20the%20preface%20%2B%20intro%20%2B%20audio%20samples%20I%20mentioned%3A%20https%3A%2F%2Fthomastron.github.io%2F%3Futm_source%3Demail%26utm_medium%3Dshare%26utm_campaign%3Dlaunch">
+          Email
+        </a>
       </div>
-    </section>
+      <p class="small" style="margin-top:8px">Insider note: early comments amplify discovery. Thanks for helping us train the recommendation layer.</p>
+    </div>
+  </section>
 
-    <footer>
-      <div class="flex" style="justify-content:space-between; flex-wrap:wrap; gap:8px">
-        <div>
-          © <span id="y"></span> Thomas Dwyer • First Edition • <a href="https://www.amazon.com/dp/B0FS352Z6J?utm_source=site&utm_medium=footer_link&utm_campaign=launch" target="_blank" rel="noopener noreferrer">Buy</a>
-        </div>
-        <div class="small">Built for readers who prefer coherence over hype.</div>
+  <footer>
+    <div class="flex" style="justify-content:space-between; flex-wrap:wrap; gap:8px">
+      <div>
+        © <span id="y"></span> Thomas Dwyer • First Edition • <a href="https://www.amazon.com/dp/B0FS352Z6J?utm_source=site&utm_medium=footer_link&utm_campaign=launch" target="_blank" rel="noopener noreferrer">Buy</a>
       </div>
-    </footer>
-  </div>
+      <div class="small">Built for readers who prefer coherence over hype.</div>
+    </div>
+  </footer>
+</div>
 </body>
 </html>
