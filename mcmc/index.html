@@ -6,28 +6,32 @@
   <meta name="robots" content="noindex,nofollow" />
   <title>MCMC Workflow Diagram — Book Process</title>
 
-  <!-- Tailwind (CDN, no build) -->
+  <!-- Tailwind (CDN, zero build) -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- KaTeX CSS + JS + auto-render -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css" integrity="sha384-9NnQH2E0QS0E8qWkC1fhzqM4vGk2h8bq3m7Y0L8w9mCw3vhQzC9HqQ7tR9R9K2s9" crossorigin="anonymous">
-  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js" integrity="sha384-ZXn4kQj8Pq9mXG2H8bF7o0jWkq0Eo8q0zYgHc7s7N3l7Y3b1i4i0qv3i1j2k3l4m" crossorigin="anonymous"></script>
-  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js" integrity="sha384-mll67Q6q1n9u3vJ9k4m0D3mQm1r8iZ3Jz9v6QpEwq2v7t9Zl6c1k7m5xZ1f2sQ1B" crossorigin="anonymous"></script>
+  <!-- KaTeX CSS + JS + auto-render (no SRI to avoid hash mismatch blocking) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+
   <script>
     document.addEventListener("DOMContentLoaded", function () {
-      renderMathInElement(document.body, {
-        delimiters: [
-          { left: "$$", right: "$$", display: true },
-          { left: "\\[", right: "\\]", display: true },
-          { left: "\\(", right: "\\)", display: false }
-        ],
-        throwOnError: false
-      });
+      if (typeof renderMathInElement === "function") {
+        renderMathInElement(document.body, {
+          delimiters: [
+            { left: "$$", right: "$$", display: true },
+            { left: "\\[", right: "\\]", display: true },
+            { left: "\\(", right: "\\)", display: false }
+          ],
+          throwOnError: false
+        });
+      } else {
+        console.error("KaTeX auto-render not loaded.");
+      }
     });
   </script>
 
   <style>
-    /* Minor polish for SVG strokes on light bg */
     .stroke-gray-300 { stroke: #d1d5db; }
     .fill-white { fill: #ffffff; }
     .fill-gray-400 { fill: #9ca3af; }
@@ -36,7 +40,7 @@
 <body class="bg-slate-50 text-gray-900">
   <main class="p-8 max-w-6xl mx-auto space-y-8">
     <header class="space-y-2">
-      <h1 class="text-3xl font-bold tracking-tight">Your Book Process as an MCMC Meta-Sampler</h1>
+      <h1 class="text-3xl font-bold tracking-tight">Book Development Process - Ghostwriter as an MCMC Meta-Sampler</h1>
       <p class="text-base opacity-80">
         A formal mapping of your recursive development workflow to Metropolis–Hastings with power sampling (α-schedule),
         including state definitions, acceptance rule, diagnostics, and parallel chains.
@@ -49,9 +53,9 @@
         <h2 class="text-xl font-semibold mb-3">Core Objects</h2>
         <ul class="list-disc ml-6 space-y-1 text-sm">
           <li><span class="font-semibold">State (xₜ)</span>: current manuscript snapshot (content + structure + style constraints).</li>
-          <li><span class="font-semibold">Proposal \(q(x' \mid x)\)</span>: AI-generated variant (prompted by you); may target a block/section.</li>
-          <li><span class="font-semibold">Target \(p(x)\)</span>: your latent ideal manuscript distribution (conceptual integrity, fidelity, voice).</li>
-          <li><span class="font-semibold">Sharpened target \(p^{\alpha}(x)\)</span>: emphasis on high-fitness manuscripts; α is the “reasoning lens.”</li>
+          <li><span class="font-semibold">Proposal q(x' | x)</span>: AI-generated variant (prompted by you); may target a block/section.</li>
+          <li><span class="font-semibold">Target p(x)</span>: your latent ideal manuscript distribution (conceptual integrity, fidelity, voice).</li>
+          <li><span class="font-semibold">Sharpened target p^α(x)</span>: emphasis on high-fitness manuscripts; α is the “reasoning lens.”</li>
           <li><span class="font-semibold">Modes</span>: Mode 1 = Structural (explore), Mode 2 = Polish (exploit).</li>
         </ul>
       </div>
@@ -94,7 +98,7 @@
 
           <g id="prompt">
             <rect x="360" y="40" width="300" height="120" rx="16" class="fill-white stroke-gray-300" />
-            <text x="510" y="78" text-anchor="middle" style="font-size:14px; font-weight:600;">Proposal Generator \(q(x'|x)\)</text>
+            <text x="510" y="78" text-anchor="middle" style="font-size:14px; font-weight:600;">Proposal Generator q(x'|x)</text>
             <text x="510" y="100" text-anchor="middle" style="font-size:12px;">LLM + Prompt (Mode 1 or Mode 2)</text>
             <text x="510" y="118" text-anchor="middle" style="font-size:12px;">(Block-wise or whole-doc)</text>
           </g>
