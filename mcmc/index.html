@@ -55,13 +55,13 @@
           <li><span class="font-semibold">State (xₜ)</span>: current manuscript snapshot (content + structure + style constraints).</li>
           <li><span class="font-semibold">Proposal q(x' | x)</span>: AI-generated variant (prompted by you); may target a block/section.</li>
           <li><span class="font-semibold">Target p(x)</span>: your latent ideal manuscript distribution (conceptual integrity, fidelity, voice).</li>
-          <li><span class="font-semibold">Sharpened target p^α(x)</span>: emphasis on high-fitness manuscripts; α is the “reasoning lens.”</li>
+          <li><span class="font-semibold">Sharpened target p^{α(x)}</span>: emphasis on high-fitness manuscripts; α is the “reasoning lens.”</li>
           <li><span class="font-semibold">Modes</span>: Mode 1 = Structural (explore), Mode 2 = Polish (exploit).</li>
         </ul>
       </div>
 
       <div class="rounded-2xl shadow p-5 bg-white">
-        <h2 class="text-xl font-semibold mb-3">Acceptance &amp; Fitness (KaTeX)</h2>
+        <h2 class="text-xl font-semibold mb-3">Acceptance &amp; Fitness</h2>
         <p class="text-sm leading-6">Composite fitness (proxy for log-likelihood) and acceptance rule:</p>
         <div class="text-sm bg-gray-50 rounded-xl p-3 overflow-auto">
           <div class="my-2">
