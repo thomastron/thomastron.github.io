@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex,nofollow" />
+  <title>MCMC Workflow Diagram — Book Process</title>
+
+  <!-- Tailwind (CDN, no build) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- KaTeX CSS + JS + auto-render -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css" integrity="sha384-9NnQH2E0QS0E8qWkC1fhzqM4vGk2h8bq3m7Y0L8w9mCw3vhQzC9HqQ7tR9R9K2s9" crossorigin="anonymous">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js" integrity="sha384-ZXn4kQj8Pq9mXG2H8bF7o0jWkq0Eo8q0zYgHc7s7N3l7Y3b1i4i0qv3i1j2k3l4m" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js" integrity="sha384-mll67Q6q1n9u3vJ9k4m0D3mQm1r8iZ3Jz9v6QpEwq2v7t9Zl6c1k7m5xZ1f2sQ1B" crossorigin="anonymous"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "$$", right: "$$", display: true },
+          { left: "\\[", right: "\\]", display: true },
+          { left: "\\(", right: "\\)", display: false }
+        ],
+        throwOnError: false
+      });
+    });
+  </script>
+
+  <style>
+    /* Minor polish for SVG strokes on light bg */
+    .stroke-gray-300 { stroke: #d1d5db; }
+    .fill-white { fill: #ffffff; }
+    .fill-gray-400 { fill: #9ca3af; }
+  </style>
+</head>
+<body class="bg-slate-50 text-gray-900">
+  <main class="p-8 max-w-6xl mx-auto space-y-8">
+    <header class="space-y-2">
+      <h1 class="text-3xl font-bold tracking-tight">Your Book Process as an MCMC Meta-Sampler</h1>
+      <p class="text-base opacity-80">
+        A formal mapping of your recursive development workflow to Metropolis–Hastings with power sampling (α-schedule),
+        including state definitions, acceptance rule, diagnostics, and parallel chains.
+      </p>
+    </header>
+
+    <!-- Legend / Notation -->
+    <section class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div class="rounded-2xl shadow p-5 bg-white">
+        <h2 class="text-xl font-semibold mb-3">Core Objects</h2>
+        <ul class="list-disc ml-6 space-y-1 text-sm">
+          <li><span class="font-semibold">State (xₜ)</span>: current manuscript snapshot (content + structure + style constraints).</li>
+          <li><span class="font-semibold">Proposal \(q(x' \mid x)\)</span>: AI-generated variant (prompted by you); may target a block/section.</li>
+          <li><span class="font-semibold">Target \(p(x)\)</span>: your latent ideal manuscript distribution (conceptual integrity, fidelity, voice).</li>
+          <li><span class="font-semibold">Sharpened target \(p^{\alpha}(x)\)</span>: emphasis on high-fitness manuscripts; α is the “reasoning lens.”</li>
+          <li><span class="font-semibold">Modes</span>: Mode 1 = Structural (explore), Mode 2 = Polish (exploit).</li>
+        </ul>
+      </div>
+
+      <div class="rounded-2xl shadow p-5 bg-white">
+        <h2 class="text-xl font-semibold mb-3">Acceptance &amp; Fitness (KaTeX)</h2>
+        <p class="text-sm leading-6">Composite fitness (proxy for log-likelihood) and acceptance rule:</p>
+        <div class="text-sm bg-gray-50 rounded-xl p-3 overflow-auto">
+          <div class="my-2">
+            \[
+              F(x) = w_c\cdot Coherence(x) + w_f\cdot Fidelity(x) + w_s\cdot Style(x) + w_p\cdot Pacing(x) + w_e\cdot Evidence(x) + w_n\cdot NarrativeBalance(x)
+            \]
+          </div>
+          <p class="mt-2 font-medium">Acceptance (Metropolis–Hastings):</p>
+          <div class="my-2">
+            \[
+              A(x \to x') = \min\left\{1, \exp\big[\alpha \big(F(x') - F(x)\big)\big] \cdot \frac{q(x\mid x')}{q(x'\mid x)}\right\}
+            \]
+          </div>
+          <ul class="list-disc ml-6 text-xs mt-2">
+            <li>Symmetric \(q\) ⇒ ratio term ≈ 1</li>
+            <li>Mode 2 (Polish): \(\alpha\uparrow\), \(q\) narrow ⇒ exploitation</li>
+            <li>Mode 1 (Structural): \(\alpha\downarrow\), \(q\) wider ⇒ exploration</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- SVG Diagram -->
+    <section class="rounded-2xl shadow p-5 bg-white">
+      <h2 class="text-xl font-semibold mb-4">High-Level Flow (One Chain)</h2>
+      <div class="w-full overflow-auto">
+        <svg viewBox="0 0 1200 560" class="w-[1100px] h-[520px]">
+          <!-- Nodes -->
+          <g id="state">
+            <rect x="40" y="60" width="260" height="80" rx="16" class="fill-white stroke-gray-300" />
+            <text x="170" y="90" text-anchor="middle" style="font-size:14px; font-weight:600;">Current State xₜ</text>
+            <text x="170" y="112" text-anchor="middle" style="font-size:12px;">(Manuscript snapshot)</text>
+          </g>
+
+          <g id="prompt">
+            <rect x="360" y="40" width="300" height="120" rx="16" class="fill-white stroke-gray-300" />
+            <text x="510" y="78" text-anchor="middle" style="font-size:14px; font-weight:600;">Proposal Generator \(q(x'|x)\)</text>
+            <text x="510" y="100" text-anchor="middle" style="font-size:12px;">LLM + Prompt (Mode 1 or Mode 2)</text>
+            <text x="510" y="118" text-anchor="middle" style="font-size:12px;">(Block-wise or whole-doc)</text>
+          </g>
+
+          <g id="candidate">
+            <rect x="720" y="60" width="260" height="80" rx="16" class="fill-white stroke-gray-300" />
+            <text x="850" y="90" text-anchor="middle" style="font-size:14px; font-weight:600;">Candidate x'</text>
+            <text x="850" y="112" text-anchor="middle" style="font-size:12px;">(AI variant)</text>
+          </g>
+
+          <g id="fitness">
+            <rect x="360" y="220" width="620" height="140" rx="16" class="fill-white stroke-gray-300" />
+            <text x="670" y="250" text-anchor="middle" style="font-size:14px; font-weight:600;">Evaluate Fitness F(x), F(x')</text>
+            <text x="670" y="270" text-anchor="middle" style="font-size:12px;">Coherence, Fidelity, Style, Pacing, Evidence, NarrativeBalance</text>
+            <text x="670" y="288" text-anchor="middle" style="font-size:12px;">Mode sets α (sharpening) + proposal width</text>
+            <text x="670" y="308" text-anchor="middle" style="font-size:12px;">Compute acceptance below (KaTeX)</text>
+          </g>
+
+          <g id="accept">
+            <rect x="360" y="400" width="260" height="80" rx="16" class="fill-white stroke-gray-300" />
+            <text x="490" y="430" text-anchor="middle" style="font-size:14px; font-weight:600;">Accept?</text>
+            <text x="490" y="452" text-anchor="middle" style="font-size:12px;">with probability A</text>
+          </g>
+
+          <g id="update">
+            <rect x="720" y="400" width="260" height="80" rx="16" class="fill-white stroke-gray-300" />
+            <text x="850" y="430" text-anchor="middle" style="font-size:14px; font-weight:600;">Update State</text>
+            <text x="850" y="452" text-anchor="middle" style="font-size:12px;">xₜ₊₁ = x' (if accepted) else x</text>
+          </g>
+
+          <!-- Arrows -->
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+              <path d="M 0 0 L 10 5 L 0 10 z" class="fill-gray-400" />
+            </marker>
+          </defs>
+
+          <line x1="300" y1="100" x2="360" y2="100" stroke="#9ca3af" stroke-width="2" marker-end="url(#arrow)" />
+          <line x1="660" y1="100" x2="720" y2="100" stroke="#9ca3af" stroke-width="2" marker-end="url(#arrow)" />
+          <line x1="850" y1="140" x2="850" y2="220" stroke="#9ca3af" stroke-width="2" marker-end="url(#arrow)" />
+          <line x1="510" y1="160" x2="510" y2="220" stroke="#9ca3af" stroke-width="2" marker-end="url(#arrow)" />
+
+          <line x1="670" y1="360" x2="490" y2="400" stroke="#9ca3af" stroke-width="2" marker-end="url(#arrow)" />
+          <line x1="670" y1="360" x2="850" y2="400" stroke="#9ca3af" stroke-width="2" marker-end="url(#arrow)" />
+          <line x1="850" y1="480" x2="170" y2="480" stroke="#9ca3af" stroke-width="2" marker-end="url(#arrow)" />
+          <line x1="170" y1="480" x2="170" y2="140" stroke="#9ca3af" stroke-width="2" marker-end="url(#arrow)" />
+        </svg>
+      </div>
+      <p class="text-xs opacity-70 mt-3">
+        Notes: The bottom arrow closes the Markov loop. In practice, you operate block-wise (sections/chapters), which improves mixing and compute efficiency.
+      </p>
+    </section>
+
+    <!-- Parallel Chains -->
+    <section class="rounded-2xl shadow p-5 bg-white">
+      <h2 class="text-xl font-semibold mb-2">Parallel Chains (Ensembles)</h2>
+      <p class="text-sm mb-3">Run multiple chains with different stylistic priors or prompts, then select top samples or perform crossovers:</p>
+      <ul class="list-disc ml-6 text-sm space-y-1">
+        <li><span class="font-semibold">Chain A:</span> Analytic voice, denser citations.</li>
+        <li><span class="font-semibold">Chain B:</span> Narrative-forward, memoir emphasis.</li>
+        <li><span class="font-semibold">Chain C:</span> Polemical/essayistic compression.</li>
+      </ul>
+      <div class="text-sm bg-gray-50 rounded-xl p-3 overflow-auto mt-3">
+        \[
+          F(x) = w_c\cdot Coherence(x) + w_f\cdot Fidelity(x) + w_s\cdot Style(x) + w_p\cdot Pacing(x) + w_e\cdot Evidence(x) + w_n\cdot NarrativeBalance(x)
+        \]
+        <p class="mt-2 font-medium">Acceptance (Metropolis–Hastings):</p>
+        \[
+          A(x \to x') = \min\left\{1, \exp\big[\alpha \big(F(x') - F(x)\big)\big] \cdot \frac{q(x\mid x')}{q(x'\mid x)}\right\}
+        \]
+        <ul class="list-disc ml-6 text-xs mt-2">
+          <li>Symmetric \(q\) ⇒ ratio term ≈ 1</li>
+          <li>Mode 2 (Polish): \(\alpha\uparrow\), \(q\) narrow ⇒ exploitation</li>
+          <li>Mode 1 (Structural): \(\alpha\downarrow\), \(q\) wider ⇒ exploration</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Diagnostics -->
+    <section class="rounded-2xl shadow p-5 bg-white">
+      <h2 class="text-xl font-semibold mb-2">Diagnostics & α-Schedule</h2>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div>
+          <h3 class="font-semibold mb-1">Convergence / Health</h3>
+          <ul class="list-disc ml-6 text-sm space-y-1">
+            <li><span class="font-semibold">Δ-State:</span> semantic distance between \(x_t\) and \(x_{t-1}\) (should decay).</li>
+            <li><span class="font-semibold">Acceptance rate:</span> aim for 0.2–0.4 in exploration; lower in polish.</li>
+            <li><span class="font-semibold">Diversity:</span> entropy of proposals; prevent collapse in Mode 2.</li>
+            <li><span class="font-semibold">Fidelity breaches:</span> count unintended deletions/condensations (should → 0).</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-semibold mb-1">α-Schedule (Exploration → Exploitation)</h3>
+          <ul class="list-disc ml-6 text-sm space-y-1">
+            <li>Start low (\(\alpha\approx 1–2\)) during outline/structure discovery (Mode 1).</li>
+            <li>Ramp to \(\alpha\approx 3–5\) once conceptual integrity stabilizes.</li>
+            <li>Finalize with high \(\alpha (\ge 5)\) for copy-polish; \(q\) becomes very local (Mode 2).</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pseudocode -->
+    <section class="rounded-2xl shadow p-5 bg-white">
+      <h2 class="text-xl font-semibold mb-2">Pseudocode (Block-wise MH with Mode Control)</h2>
+      <div class="text-sm bg-gray-50 rounded-xl p-3 overflow-auto">
+        \[
+          F(x) = w_c\cdot Coherence(x) + w_f\cdot Fidelity(x) + w_s\cdot Style(x) + w_p\cdot Pacing(x) + w_e\cdot Evidence(x) + w_n\cdot NarrativeBalance(x)
+        \]
+        <p class="mt-2 font-medium">Acceptance (Metropolis–Hastings):</p>
+        \[
+          A(x \to x') = \min\left\{1, \exp\big[\alpha \big(F(x') - F(x)\big)\big] \cdot \frac{q(x\mid x')}{q(x'\mid x)}\right\}
+        \]
+        <ul class="list-disc ml-6 text-xs mt-2">
+          <li>Symmetric \(q\) ⇒ ratio term ≈ 1</li>
+          <li>Mode 2 (Polish): \(\alpha\uparrow\), \(q\) narrow ⇒ exploitation</li>
+          <li>Mode 1 (Structural): \(\alpha\downarrow\), \(q\) wider ⇒ exploration</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Actionable Checklist -->
+    <section class="rounded-2xl shadow p-5 bg-white">
+      <h2 class="text-xl font-semibold mb-2">Actionable Checklist to Operationalize</h2>
+      <ol class="list-decimal ml-6 text-sm space-y-1">
+        <li>Define a compact <span class="font-semibold">fitness rubric</span> (1–5 scale per dimension) and log scores per iteration.</li>
+        <li>Explicitly set <span class="font-semibold">α</span> and <span class="font-semibold">proposal width</span> per phase (document in prompt headers).</li>
+        <li>Run <span class="font-semibold">parallel chains</span> for 2–3 stylistic priors; cross-pollinate top-scoring blocks.</li>
+        <li>Track <span class="font-semibold">acceptance rate</span>, <span class="font-semibold">Δ-state</span>, and <span class="font-semibold">fidelity breaches</span> to decide when to switch modes.</li>
+        <li>Institutionalize the <span class="font-semibold">Zero-Condensation Directive</span> in all Mode 2 prompts.</li>
+      </ol>
+    </section>
+
+    <!-- Render Tests -->
+    <section class="rounded-2xl shadow p-5 bg-white">
+      <h2 class="text-xl font-semibold mb-2">Render Tests</h2>
+      <ul class="list-disc ml-6 text-sm space-y-1">
+        <li>Inline math renders: \(x_t,\ x_{t+1},\ \alpha\).</li>
+        <li>Block math renders without overflow:</li>
+      </ul>
+      <div class="bg-gray-50 rounded-xl p-3 mt-2 overflow-auto">
+        \[
+          \sum_{t=1}^{T} \Delta(x_t, x_{t-1}) \to 0 \quad \text{as convergence}
+        \]
+      </div>
+    </section>
+
+    <footer class="pt-2 text-xs opacity-60">
+      Built as an explanatory artifact to make the stochastic logic of your workflow explicit and auditable.
+    </footer>
+  </main>
+</body>
+</html>
