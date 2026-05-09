@@ -4,6 +4,7 @@
 
   // ── State ──────────────────────────────────────────────────────────────────
   let userKey = localStorage.getItem('bpUserKey') || null;
+  let userId = localStorage.getItem('bpUserId') || null;
   let conversationId = localStorage.getItem('bpConversationId') || null;
   let sseSource = null;
 
@@ -145,10 +146,12 @@
     appendMessage('system', 'Connecting…');
     try {
       if (!userKey) {
-        const { key } = await api('POST', '/users', {});
+        const { key, user } = await api('POST', '/users', {});
         userKey = key;
+        userId = user.id;
         localStorage.setItem('bpUserKey', key);
-      }
+        localStorage.setItem('bpUserId', user.id);
+}
       if (!conversationId) {
         const { conversation: { id } } = await api('POST', '/conversations', {}, userKey);
         conversationId = id;
@@ -191,7 +194,7 @@
           const signal = JSON.parse(line.slice(6));
           if (signal.type === 'message_created') {
             const msg = signal.data;
-            if (msg.direction === 'incoming') continue;
+            if (!msg || msg.userId === userId) continue;
             const text = msg.payload?.text || '[unsupported message type]';
             appendMessage('bot', text);
             removeTypingIndicator();
