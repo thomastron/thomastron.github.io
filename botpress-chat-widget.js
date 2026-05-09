@@ -150,7 +150,7 @@
         localStorage.setItem('bpUserKey', key);
       }
       if (!conversationId) {
-        const { id } = await api('POST', '/conversations', {}, userKey);
+        const { conversation: { id } } = await api('POST', '/conversations', {}, userKey);
         conversationId = id;
         localStorage.setItem('bpConversationId', id);
       }
