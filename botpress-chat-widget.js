@@ -1,11 +1,3 @@
-/**
- * PT$D Book Chat Widget
- * Drop this file into your drapedapes.org GitHub Pages repo,
- * then add <script src="botpress-chat-widget.js"></script> before </body>.
- *
- * Requires: Botpress Chat integration enabled on your bot.
- */
-
 (function () {
   const WEBHOOK_ID = '9b3e01f7-f1fe-4df1-baae-cc2f3e4e1d57';
   const API_BASE = `https://chat.botpress.cloud/${WEBHOOK_ID}`;
