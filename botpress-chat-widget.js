@@ -227,9 +227,33 @@
         userKey
       );
     } catch (e) {
-      removeTypingIndicator();
-      appendMessage('system', 'Message failed to send.');
-      console.error(e);
+      // Session may be stale — clear and retry once with a fresh session
+      if (!sendMessage._retrying) {
+        sendMessage._retrying = true;
+        localStorage.removeItem('bpUserKey');
+        localStorage.removeItem('bpConversationId');
+        userKey = null;
+        conversationId = null;
+        removeTypingIndicator();
+        await initSession();
+        try {
+          await api(
+            'POST',
+            `/conversations/${conversationId}/messages`,
+            { payload: { type: 'text', text } },
+            userKey
+          );
+        } catch (e2) {
+          removeTypingIndicator();
+          appendMessage('system', 'Message failed to send. Please refresh the page.');
+          console.error(e2);
+        }
+        sendMessage._retrying = false;
+      } else {
+        removeTypingIndicator();
+        appendMessage('system', 'Message failed to send. Please refresh the page.');
+        console.error(e);
+      }
     } finally {
       document.getElementById('bp-send').disabled = false;
     }
