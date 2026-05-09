@@ -1,11 +1,21 @@
+/**
+ * PT$D Book Chat Widget
+ * Drop this file into your drapedapes.org GitHub Pages repo,
+ * then add <script src="botpress-chat-widget.js"></script> before </body>.
+ *
+ * Requires: Botpress Chat integration enabled on your bot.
+ */
+
 (function () {
   const WEBHOOK_ID = '9b3e01f7-f1fe-4df1-baae-cc2f3e4e1d57';
   const API_BASE = `https://chat.botpress.cloud/${WEBHOOK_ID}`;
 
+  // ── State ──────────────────────────────────────────────────────────────────
   let userKey = localStorage.getItem('bpUserKey') || null;
   let conversationId = localStorage.getItem('bpConversationId') || null;
   let sseSource = null;
 
+  // ── Styles ─────────────────────────────────────────────────────────────────
   const css = `
     #bp-toggle {
       position: fixed; bottom: 24px; right: 24px; z-index: 9999;
@@ -16,6 +26,7 @@
       transition: background .2s;
     }
     #bp-toggle:hover { background: #333; }
+
     #bp-window {
       display: none; flex-direction: column;
       position: fixed; bottom: 92px; right: 24px; z-index: 9999;
@@ -26,16 +37,19 @@
       overflow: hidden;
     }
     #bp-window.open { display: flex; }
+
     #bp-header {
       background: #1a1a1a; color: #fff;
       padding: 14px 16px; font-weight: 600; font-size: 15px;
       display: flex; justify-content: space-between; align-items: center;
     }
     #bp-header span { opacity: .6; font-size: 12px; font-weight: 400; }
+
     #bp-messages {
       flex: 1; overflow-y: auto; padding: 14px;
       display: flex; flex-direction: column; gap: 8px;
     }
+
     .bp-msg {
       max-width: 82%; padding: 9px 12px; border-radius: 12px;
       line-height: 1.45; word-wrap: break-word;
@@ -54,8 +68,10 @@
       align-self: center; font-size: 11px;
       color: #999; background: none; padding: 2px 0;
     }
+
     #bp-input-row {
-      display: flex; border-top: 1px solid #eee; padding: 10px; gap: 8px;
+      display: flex; border-top: 1px solid #eee; padding: 10px;
+      gap: 8px;
     }
     #bp-input {
       flex: 1; border: 1px solid #ddd; border-radius: 8px;
@@ -72,6 +88,7 @@
     #bp-send:disabled { opacity: .4; cursor: default; }
   `;
 
+  // ── DOM ────────────────────────────────────────────────────────────────────
   function buildUI() {
     const style = document.createElement('style');
     style.textContent = css;
@@ -101,11 +118,13 @@
     toggle.addEventListener('click', () => {
       const isOpen = win.classList.toggle('open');
       toggle.textContent = isOpen ? '✕' : '💬';
-      if (isOpen) openChat();
+      if (isOpen && !conversationId) initSession();
       if (isOpen) document.getElementById('bp-input').focus();
     });
 
     const input = document.getElementById('bp-input');
+    const send = document.getElementById('bp-send');
+
     input.addEventListener('keydown', (e) => {
       if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendMessage(); }
     });
@@ -113,17 +132,10 @@
       input.style.height = 'auto';
       input.style.height = Math.min(input.scrollHeight, 100) + 'px';
     });
-    document.getElementById('bp-send').addEventListener('click', sendMessage);
+    send.addEventListener('click', sendMessage);
   }
 
-  async function openChat() {
-    if (!conversationId) {
-      await initSession();
-    } else if (!sseSource || sseSource.readyState === EventSource.CLOSED) {
-      startListening();
-    }
-  }
-
+  // ── API helpers ────────────────────────────────────────────────────────────
   async function api(method, path, body, key) {
     const headers = { 'Content-Type': 'application/json' };
     if (key) headers['x-user-key'] = key;
@@ -136,6 +148,7 @@
     return res.json();
   }
 
+  // ── Session ────────────────────────────────────────────────────────────────
   async function initSession() {
     appendMessage('system', 'Connecting…');
     try {
@@ -151,43 +164,49 @@
       }
       startListening();
       clearSystemMessages();
-      appendMessage('bot', "Hello — ask me anything about PT$D, or share a belief and I'll push back.");
+      appendMessage('bot', 'Hello — ask me anything about PT$D, or share a belief and I\'ll push back.');
     } catch (e) {
       appendMessage('system', 'Could not connect. Please try again.');
       console.error(e);
     }
   }
 
-  async function resetSession() {
-    localStorage.removeItem('bpUserKey');
-    localStorage.removeItem('bpConversationId');
-    userKey = null;
-    conversationId = null;
-    if (sseSource) { sseSource.close(); sseSource = null; }
-    await initSession();
-  }
-
+  // ── SSE listener ──────────────────────────────────────────────────────────
   function startListening() {
     if (sseSource) sseSource.close();
-    const url = `${API_BASE}/conversations/${conversationId}/listen?userKey=${encodeURIComponent(userKey)}`;
-    sseSource = new EventSource(url);
+    const url = `${API_BASE}/conversations/${conversationId}/listen`;
+    sseSource = new EventSource(url, {
+      headers: { 'x-user-key': userKey },
+    });
+
+    // EventSource doesn't support custom headers in all browsers —
+    // fall back to passing key as query param if needed
+    if (!sseSource || sseSource.readyState === EventSource.CLOSED) {
+      sseSource = new EventSource(
+        `${url}?userKey=${encodeURIComponent(userKey)}`
+      );
+    }
 
     sseSource.onmessage = (event) => {
       try {
         const signal = JSON.parse(event.data);
         if (signal.type === 'message_created') {
           const msg = signal.payload;
+          // Only show messages from the bot (not echoes of user messages)
           if (msg.direction === 'incoming') return;
           const text = msg.payload?.text || '[unsupported message type]';
-          removeTypingIndicator();
           appendMessage('bot', text);
+          removeTypingIndicator();
         }
       } catch (_) {}
     };
 
-    sseSource.onerror = () => {};
+    sseSource.onerror = () => {
+      // SSE will auto-reconnect; suppress noise
+    };
   }
 
+  // ── Send ───────────────────────────────────────────────────────────────────
   async function sendMessage() {
     const input = document.getElementById('bp-input');
     const text = input.value.trim();
@@ -201,16 +220,29 @@
     addTypingIndicator();
 
     try {
-      await api('POST', `/conversations/${conversationId}/messages`,
-        { payload: { type: 'text', text } }, userKey);
+      await api(
+        'POST',
+        `/conversations/${conversationId}/messages`,
+        { payload: { type: 'text', text } },
+        userKey
+      );
     } catch (e) {
+      // Session may be stale — clear and retry once with a fresh session
       if (!sendMessage._retrying) {
         sendMessage._retrying = true;
+        localStorage.removeItem('bpUserKey');
+        localStorage.removeItem('bpConversationId');
+        userKey = null;
+        conversationId = null;
         removeTypingIndicator();
-        await resetSession();
+        await initSession();
         try {
-          await api('POST', `/conversations/${conversationId}/messages`,
-            { payload: { type: 'text', text } }, userKey);
+          await api(
+            'POST',
+            `/conversations/${conversationId}/messages`,
+            { payload: { type: 'text', text } },
+            userKey
+          );
         } catch (e2) {
           removeTypingIndicator();
           appendMessage('system', 'Message failed to send. Please refresh the page.');
@@ -227,11 +259,27 @@
     }
   }
 
+  // ── Minimal markdown renderer (bold, italic, links, line breaks) ───────────
+  function renderMarkdown(text) {
+    return text
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+      .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+      .replace(/\*(.+?)\*/g, '<em>$1</em>')
+      .replace(/_(.+?)_/g, '<em>$1</em>')
+      .replace(/\[(.+?)\]\((https?:\/\/[^\)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>')
+      .replace(/\n/g, '<br>');
+  }
+
+  // ── UI helpers ─────────────────────────────────────────────────────────────
   function appendMessage(role, text) {
     const container = document.getElementById('bp-messages');
     const div = document.createElement('div');
     div.className = `bp-msg ${role}`;
-    div.textContent = text;
+    if (role === 'bot') {
+      div.innerHTML = renderMarkdown(text);
+    } else {
+      div.textContent = text;
+    }
     container.appendChild(div);
     container.scrollTop = container.scrollHeight;
   }
@@ -255,6 +303,7 @@
     document.querySelectorAll('.bp-msg.system').forEach((el) => el.remove());
   }
 
+  // ── Init ───────────────────────────────────────────────────────────────────
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', buildUI);
   } else {
