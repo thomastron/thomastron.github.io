@@ -164,7 +164,7 @@
       }
       startListening();
       clearSystemMessages();
-      appendMessage('bot', 'Hello — ask me anything about *PT$D*, or share a belief and I\'ll push back.');
+      appendMessage('bot', 'Hello — ask me anything about PT$D, or share a belief and I\'ll push back.');
     } catch (e) {
       appendMessage('system', 'Could not connect. Please try again.');
       console.error(e);
@@ -235,12 +235,27 @@
     }
   }
 
+  // ── Minimal markdown renderer (bold, italic, links, line breaks) ───────────
+  function renderMarkdown(text) {
+    return text
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+      .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+      .replace(/\*(.+?)\*/g, '<em>$1</em>')
+      .replace(/_(.+?)_/g, '<em>$1</em>')
+      .replace(/\[(.+?)\]\((https?:\/\/[^\)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>')
+      .replace(/\n/g, '<br>');
+  }
+
   // ── UI helpers ─────────────────────────────────────────────────────────────
   function appendMessage(role, text) {
     const container = document.getElementById('bp-messages');
     const div = document.createElement('div');
     div.className = `bp-msg ${role}`;
-    div.textContent = text;
+    if (role === 'bot') {
+      div.innerHTML = renderMarkdown(text);
+    } else {
+      div.textContent = text;
+    }
     container.appendChild(div);
     container.scrollTop = container.scrollHeight;
   }
