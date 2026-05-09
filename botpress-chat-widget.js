@@ -166,18 +166,8 @@
   // ── SSE listener ──────────────────────────────────────────────────────────
   function startListening() {
     if (sseSource) sseSource.close();
-    const url = `${API_BASE}/conversations/${conversationId}/listen`;
-    sseSource = new EventSource(url, {
-      headers: { 'x-user-key': userKey },
-    });
-
-    // EventSource doesn't support custom headers in all browsers —
-    // fall back to passing key as query param if needed
-    if (!sseSource || sseSource.readyState === EventSource.CLOSED) {
-      sseSource = new EventSource(
-        `${url}?userKey=${encodeURIComponent(userKey)}`
-      );
-    }
+    const url = `${API_BASE}/conversations/${conversationId}/listen?userKey=${encodeURIComponent(userKey)}`;
+    sseSource = new EventSource(url);
 
     sseSource.onmessage = (event) => {
       try {
