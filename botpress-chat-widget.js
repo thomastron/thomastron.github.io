@@ -164,29 +164,45 @@
   }
 
   // ── SSE listener ──────────────────────────────────────────────────────────
-  function startListening() {
-    if (sseSource) sseSource.close();
-    const url = `${API_BASE}/conversations/${conversationId}/listen?userKey=${encodeURIComponent(userKey)}`;
-    sseSource = new EventSource(url);
+  async function startListening() {
+  if (sseSource) { sseSource.abort(); sseSource = null; }
+  const controller = new AbortController();
+  sseSource = controller;
 
-    sseSource.onmessage = (event) => {
-      try {
-        const signal = JSON.parse(event.data);
-        if (signal.type === 'message_created') {
-          const msg = signal.payload;
-          // Only show messages from the bot (not echoes of user messages)
-          if (msg.direction === 'incoming') return;
-          const text = msg.payload?.text || '[unsupported message type]';
-          appendMessage('bot', text);
-          removeTypingIndicator();
-        }
-      } catch (_) {}
-    };
+  try {
+    const res = await fetch(`${API_BASE}/conversations/${conversationId}/listen`, {
+      headers: { 'x-user-key': userKey },
+      signal: controller.signal,
+    });
 
-    sseSource.onerror = () => {
-      // SSE will auto-reconnect; suppress noise
-    };
+    const reader = res.body.getReader();
+    const decoder = new TextDecoder();
+    let buffer = '';
+
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      buffer += decoder.decode(value, { stream: true });
+      const lines = buffer.split('\n');
+      buffer = lines.pop();
+      for (const line of lines) {
+        if (!line.startsWith('data: ')) continue;
+        try {
+          const signal = JSON.parse(line.slice(6));
+          if (signal.type === 'message_created') {
+            const msg = signal.payload;
+            if (msg.direction === 'incoming') continue;
+            const text = msg.payload?.text || '[unsupported message type]';
+            appendMessage('bot', text);
+            removeTypingIndicator();
+          }
+        } catch (_) {}
+      }
+    }
+  } catch (e) {
+    if (e.name !== 'AbortError') setTimeout(startListening, 3000);
   }
+}
 
   // ── Send ───────────────────────────────────────────────────────────────────
   async function sendMessage() {
@@ -202,12 +218,7 @@
     addTypingIndicator();
 
     try {
-      await api(
-        'POST',
-        `/conversations/${conversationId}/messages`,
-        { payload: { type: 'text', text } },
-        userKey
-      );
+      await api('POST', '/messages', { conversationId, payload: { type: 'text', text } }, userKey);
     } catch (e) {
       removeTypingIndicator();
       appendMessage('system', 'Message failed to send.');
