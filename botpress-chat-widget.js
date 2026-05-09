@@ -190,7 +190,7 @@
         try {
           const signal = JSON.parse(line.slice(6));
           if (signal.type === 'message_created') {
-            const msg = signal.payload;
+            const msg = signal.data;
             if (msg.direction === 'incoming') continue;
             const text = msg.payload?.text || '[unsupported message type]';
             appendMessage('bot', text);
