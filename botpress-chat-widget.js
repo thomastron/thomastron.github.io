@@ -1,5 +1,5 @@
 (function () {
-  const WEBHOOK_ID = '9b3e01f7-f1fe-4df1-baae-cc2f3e4e1d57';
+  const WEBHOOK_ID = '74156707-fd40-4b0d-944f-eb38b0f9583a';
   const API_BASE = `https://chat.botpress.cloud/${WEBHOOK_ID}`;
 
   // ── State ──────────────────────────────────────────────────────────────────
