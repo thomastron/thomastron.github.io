@@ -2,7 +2,7 @@
 
 **By Thomas Dwyer**
 
-> **Note to Readers:** This repository contains the raw, unformatted Markdown "source code" of the book *PT$D*. If you are looking for a comfortable, formatted reading experience (Paperback, EPUB, or PDF), please **[purchase the compiled book here](#)**. 
+> **Note to Readers:** This repository contains the raw, unformatted Markdown "source code" of the book *PT$D*. If you are looking for a comfortable, formatted reading experience (Paperback, EPUB, or PDF), please **[purchase the compiled book here](https://www.amazon.com/PT-Truth-Currency-Market-Denial/dp/B0H3L2RP9P)**. 
 
 ## The Philosophy of this Repository
 
@@ -36,9 +36,9 @@ Paste it into your LLM of choice along with your query. The file includes a `<co
 
 Reading raw Markdown on a monitor is not an optimal long-form reading experience. If you find value in these frameworks and want the tactile, properly formatted version of the book, you can purchase it below. *Buying the book is the patron model that keeps this infrastructure maintained.*
 
-*   📚 **[Buy the Paperback / Hardcover](#)**
-*   📱 **[Buy the EPUB / Kindle Version](#)**
-*   📄 **[Buy the High-Fidelity PDF](#)**
+*   📚 **[Buy the Paperback](https://www.amazon.com/PT-Truth-Currency-Market-Denial/dp/B0H3L2RP9P)**
+*   📱 **[Buy the EPUB / Kindle Version](https://www.amazon.com/PT-Truth-Currency-Market-Denial/dp/B0H3L2RP9P)**
+*   📄 **[Buy the Audio Book Here xxxxxx](#)**
 
 ## License & Copyright
 
