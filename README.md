@@ -1,4 +1,2 @@
 # thomastron.github.io
-
-https://thomastron.github.io/
-
+https://DrapedApes.org 
