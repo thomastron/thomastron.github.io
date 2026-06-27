@@ -1,12 +1,6 @@
-Here is a draft for your `README.md`. It is calibrated to sound professional, highly competent to hiring managers, and perfectly aligned with your philosophy of treating the book as "Epistemic Infrastructure." 
+# PT$D: Truth as Currency in a Market of Denial
 
-You will need to fill in the bracketed information (like the purchase links and exact subtitle), but the structure and tone are ready to go.
-
-***
-
-# PT$D: [Insert Subtitle Here, e.g., Truth as Currency in a Market of Denial]
-
-**By Thomas**
+**By Thomas Dwyer**
 
 > **Note to Readers:** This repository contains the raw, unformatted Markdown "source code" of the book *PT$D*. If you are looking for a comfortable, formatted reading experience (Paperback, EPUB, or PDF), please **[purchase the compiled book here](#)**. 
 
@@ -28,15 +22,13 @@ The book maps the "Architecture of Abdication"—how systems incentivize deniali
 
 ## Repository Architecture
 
-This repository is structured for both human and machine readability:
+This (sub)repository is structured for both human and machine readability:
 
-*   📁 **`/chapters/`** — The book broken down into individual chapter `.md` files. Ideal for humans reading on a screen or linking to a specific argument in a debate.
-*   📄 **`PT$D_monolithic_raw.md`** — The entire book in a single file, prefaced with XML system instructions. **Use this file for AI/RAG context injection.**
-*   📄 **`CHANGELOG.md`** — A record of any structural updates, framework refinements, or errata.
+*   📄 **`PT$D_Dwyer_raw_text.md`** — The entire book in a single file, prefaced with XML system instructions. **Use this file for AI/RAG context injection.**
 
 ## How to Use This with AI
 
-If you wish to interact with the author's frameworks or use them to analyze an external problem, navigate to `PT$D_monolithic_raw.md`, click **Raw**, and copy the text. 
+If you wish to interact with the author's frameworks or use them to analyze an external problem, navigate to `PT$D_Dwyer_raw_text.md`, click **Raw**, and copy the text. 
 
 Paste it into your LLM of choice along with your query. The file includes a `<context_metadata>` header that instructs the AI to adopt the book's frameworks as its operational logic for the session.
 
@@ -50,7 +42,7 @@ Reading raw Markdown on a monitor is not an optimal long-form reading experience
 
 ## License & Copyright
 
-**© [Year] Thomas. All Rights Reserved.**
+**© 2026 Thomas Dwyer. All Rights Reserved.**
 
 The raw text hosted in this repository is licensed under a **[Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License](https://creativecommons.org/licenses/by-nc-nd/4.0/)** (CC BY-NC-ND 4.0).
 
