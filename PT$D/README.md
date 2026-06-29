@@ -6,17 +6,17 @@
 
 ## The Philosophy of this Repository
 
-This book was not written as a commercial persuasion campaign; it was engineered as **epistemic infrastructure**. 
+This book was not written as a commercial persuasion campaign; it was engineered as epistemic infrastructure. 
 
-Because this text is meant to serve as a diagnostic tool for systems thinkers, practitioners, and those holding the line in degraded institutions (what this book terms "Anchor Nodes"), the raw ideas must remain accessible. By hosting the raw Markdown on GitHub, this repository serves three specific functions:
+Because this text is meant to serve as a diagnostic tool for systems thinkers, practitioners, and those holding the line in degraded institutions, the raw ideas must remain accessible. By hosting the raw Markdown on GitHub, this repository serves three specific functions:
 
-1. **AI Context Loading:** The native `.md` format is highly token-efficient. Users can easily copy the monolithic text file into Large Language Models (Claude, ChatGPT, Gemini) to establish a "Ground Truth" context window for high-level debate, systemic analysis, and framework application.
-2. **Frictionless Reference:** Practitioners can search, link to, and reference specific frameworks (e.g., *The Architecture of Abdication*, *The Credibility Formula*) without parsing a PDF or carrying a physical book.
-3. **Open Epistemology:** The ideas and frameworks are free to access, verify, and utilize. Purchasing the compiled book subsidizes the time it took to build them.
+1. **AI Context Loading:** The native `.md` format is highly token-efficient (approximately 130k tokens.)  Users can easily copy the monolithic text file into Large Language Models (Claude, ChatGPT, Gemini) to establish context window for high-level debate, systemic analysis, and framework application.
+2. **Frictionless Reference:** Practitioners can search, link to, and reference specific frameworks (e.g., *The Credibility Formula*) without parsing a PDF or carrying a physical book.
+3. **Open Epistemology:** The ideas and frameworks are free to access, verify, and utilize. Purchasing the compiled book subsidizes the time it took to build them and continued efforts.
 
 ## Core Thesis
 
-*PT$D* is a structural diagnosis of institutional and interpersonal failure. It argues that the current systemic breakdown we are experiencing is not a product of cognitive deficit ("they can't see"), but of **moral cowardice and volitional refusal** ("they won't look"). 
+*PT$D* is a structural diagnosis of institutional and interpersonal failure. It argues that the current systemic breakdown we are experiencing is not a product of cognitive deficit ("they can't see"), but of moral cowardice and volitional refusal ("they won't look"). 
 
 The book maps the "Architecture of Abdication"—how systems incentivize denialism, how time and consequence are distorted to protect the status quo, and how individuals can maintain "Inner Coherence" and bear moral witness when surrounded by those who choose comfort over consequence.
 
@@ -28,9 +28,7 @@ This (sub)repository is structured for both human and machine readability:
 
 ## How to Use This with AI
 
-If you wish to interact with the author's frameworks or use them to analyze an external problem, navigate to `PT$D_Dwyer_raw_text.md`, click **Raw**, and copy the text. 
-
-Paste it into your LLM of choice along with your query. The file includes a `<context_metadata>` header that instructs the AI to adopt the book's frameworks as its operational logic for the session.
+If you wish to interact with the author's frameworks or use them to analyze an external problem, navigate to `PT$D_Dwyer_raw_text.md`, to save the file and drag it AI conversation. 
 
 ## Acquire the Formatted Book
 
