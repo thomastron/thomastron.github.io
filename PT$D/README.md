@@ -2,13 +2,13 @@
 
 **By Thomas Dwyer**
 
-> **Note to Readers:** This repository contains the raw, unformatted Markdown "source code" of the book *PT$D*. If you are looking for a comfortable, formatted reading experience (Paperback, EPUB, or PDF), please **[purchase the compiled book here](https://www.amazon.com/PT-Truth-Currency-Market-Denial/dp/B0H3L2RP9P)**. 
+> **Note to Readers:** This repository contains the raw, unformatted Markdown "source code" of the book *PT$D*. This is the complete source text. The paperback, EPUB, audiobook, and PDF provide professionally edited, typeset, and convenient reading experiences. Purchasing them supports continued writing and research while allowing the underlying ideas to remain openly accessible. If you are looking for a comfortable, formatted reading experience (Paperback, EPUB, or PDF), please **[purchase the compiled book here](https://www.amazon.com/PT-Truth-Currency-Market-Denial/dp/B0H3L2RP9P)**. 
 
 ## The Philosophy of this Repository
 
-This book was not written as a commercial persuasion campaign; it was engineered as epistemic infrastructure. 
+This book was not written as a commercial persuasion campaign; it was engineered as epistemic infrastructure. PT$D is an attempt to bear witness to the psychological, institutional, technological, and economic conditions shaping life in the early twenty-first century. 
 
-Because this text is meant to serve as a diagnostic tool for systems thinkers, practitioners, and those holding the line in degraded institutions, the raw ideas must remain accessible. By hosting the raw Markdown on GitHub, this repository serves three specific functions:
+Because this text is meant to serve as a diagnostic tool for systems thinkers and practitioners, the raw ideas must remain accessible. By hosting the raw Markdown on GitHub, this repository serves three specific functions:
 
 1. **AI Context Loading:** The native `.md` format is highly token-efficient (approximately 130k tokens.)  Users can easily copy the monolithic text file into Large Language Models (Claude, ChatGPT, Gemini) to establish context window for high-level debate, systemic analysis, and framework application.
 2. **Frictionless Reference:** Practitioners can search, link to, and reference specific frameworks (e.g., *The Credibility Formula*) without parsing a PDF or carrying a physical book.
@@ -16,7 +16,7 @@ Because this text is meant to serve as a diagnostic tool for systems thinkers, p
 
 ## Core Thesis
 
-*PT$D* is a structural diagnosis of institutional and interpersonal failure. It argues that the current systemic breakdown we are experiencing is not a product of cognitive deficit ("they can't see"), but of moral cowardice and volitional refusal ("they won't look"). 
+*PT$D* is a structural diagnosis of institutional and interpersonal failure. It argues that the current systemic breakdown we are experiencing is not a product of cognitive deficit ("they can't see"), but a volitional refusal ("they won't look"). It argues that many contemporary failures arise less from ignorance than from the psychological, social, and institutional incentives that make looking away easier than confronting uncomfortable realities.
 
 The book maps the "Architecture of Abdication"—how systems incentivize denialism, how time and consequence are distorted to protect the status quo, and how individuals can maintain "Inner Coherence" and bear moral witness when surrounded by those who choose comfort over consequence.
 
