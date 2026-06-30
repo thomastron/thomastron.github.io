@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PT$D — First Edition Sample & Launch</title>
+  <meta name="description" content="Read and listen to sample chapters from PT$D (First Edition). Help launch by buying, reviewing, and sharing." />
+  <meta name="robots" content="index,follow" />
+  <meta name="theme-color" content="#0b0c10" />
+
+  <link rel="canonical" href="https://thomastron.github.io/" />
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+  <meta property="og:title" content="PT$D — First Edition" />
+  <meta property="og:description" content="Sample chapters (text + audio). This first edition is print-on-demand—your order is the launch." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://thomastron.github.io/" />
+  <meta property="og:image" content="https://thomastron.github.io/images/cover.jpg" /> 
+  <meta property="og:site_name" content="PT$D" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="PT$D — First Edition" />
+  <meta name="twitter:description" content="Sample chapters (text + audio). This first edition is print-on-demand—your order is the launch." />
+  <meta name="twitter:image" content="https://thomastron.github.io/images/cover.jpg" /> 
+
+  <link rel="preload" as="image" href="/images/cover.jpg" imagesrcset="/images/cover.jpg" imagesizes="(max-width: 820px) 100vw, 40vw" />
+
+  <style>
+    :root { --bg: #0b0c10; --panel: #121318; --ink: #e6e7eb; --muted: #a7adba; --accent: #7dd3fc; --accent2: #a78bfa; }
+    * { box-sizing: border-box; }
+    html, body { margin:0; padding:0; background: var(--bg); color: var(--ink); font-family: system-ui, -apple-system, sans-serif; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    
+    .wrap { max-width: 980px; margin: 0 auto; padding: 24px; }
+    header.hero { display: grid; grid-template-columns: 1fr; gap: 24px; align-items: center; padding: 32px 0 8px; }
+    .card { background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02)); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 20px; box-shadow: 0 10px 24px rgba(0,0,0,0.35); }
+    
+    .pill { display:inline-flex; gap:8px; padding:6px 10px; border-radius:999px; border:1px solid rgba(255,255,255,0.12); color: var(--muted); font-size: 12px; letter-spacing:.25px; }
+    .title { font-size: clamp(28px, 4vw, 42px); line-height:1.1; margin: 4px 0 8px; }
+    .subtitle { color: var(--muted); font-size: clamp(16px, 3vw, 24px); }
+    .intro-text { color: var(--muted); font-size: clamp(14px, 2vw, 18px); } 
+    
+    .cta-row { display:flex; flex-wrap:wrap; gap:12px; margin-top: 16px; }
+    .btn { appearance:none; border:1px solid rgba(255,255,255,0.12); background: rgba(255,255,255,0.05); color: var(--ink); padding: 12px 16px; border-radius: 12px; font-weight: 600; cursor: pointer; transition: transform 0.2s; }
+    .btn:hover{ transform: translateY(-1px); background: rgba(255,255,255,0.08); }
+    .btn.primary{ background: linear-gradient(135deg, rgba(125,211,252,0.25), rgba(167,139,250,0.25)); border-color: rgba(255,255,255,0.22); }
+    .btn.xl { font-size: 18px; padding: 16px 20px; }
+    
+    .grid { display:grid; grid-template-columns: 1fr; gap: 16px; }
+    section { margin: 28px 0; }
+    h2 { font-size: 18px; text-transform: uppercase; letter-spacing: .18em; color: var(--muted); margin: 0 0 12px; }
+    
+    .pdf-list a { display:flex; align-items:center; justify-content: space-between; gap: 12px; padding: 12px 14px; border-radius: 12px; border:1px solid rgba(255,255,255,0.12); background: rgba(255,255,255,0.02); }
+    .tag { font-size: 12px; color: var(--muted); border:1px solid rgba(255,255,255,.12); padding: 2px 8px; border-radius: 999px; }
+    .note { color: var(--muted); font-size: 14px; }
+    .callout { border-left: 3px solid var(--accent); padding-left: 12px; color: var(--muted); }
+    .small { font-size: 12px; color: var(--muted); }
+    .mono { font-family: monospace; }
+    .flex { display:flex; gap: 12px; align-items:center; }
+    
+    details { border:1px solid rgba(255,255,255,0.12); padding: 12px 14px; border-radius: 12px; }
+    details > summary { cursor: pointer; font-weight: 600; }
+    blockquote { margin: 0; padding: 12px 14px; border-left: 3px solid var(--accent2); color: var(--muted); font-style: italic; background: rgba(255,255,255,0.02); border-radius: 8px; }
+
+    /* Image Gallery */
+    .image-gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin-top: 16px; }
+    .image-tile { display: block; overflow: hidden; border-radius: 12px; cursor: pointer; }
+    .image-tile img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.3s; }
+    .image-tile img:hover { transform: scale(1.05); }
+
+    /* Clean JavaScript Lightbox */
+    .lightbox { display: none; position: fixed; z-index: 999; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); align-items: center; justify-content: center; backdrop-filter: blur(5px); cursor: pointer; }
+    .lightbox-content { position: relative; max-width: 90%; max-height: 90%; }
+    .lightbox-content img { max-width: 100%; max-height: 90vh; border-radius: 8px; display: block; }
+    .lightbox-close { position: absolute; top: -35px; right: 0; font-size: 32px; color: #fff; text-decoration: none; font-weight: bold; }
+
+    @media (min-width: 820px) {
+      header.hero { grid-template-columns: 1.2fr .8fr; }
+      .grid.two { grid-template-columns: 1fr 1fr; }
+      .image-gallery { grid-template-columns: repeat(3, 1fr); }
+    }
+  </style>
+
+  <script>
+    // Clean, simplified JavaScript functions
+    function copyText(id, btnId) {
+      const url = document.getElementById(id).href;
+      navigator.clipboard.writeText(url).then(() => {
+        const btn = document.getElementById(btnId);
+        const oldText = btn.textContent; 
+        btn.textContent = 'Copied!'; 
+        setTimeout(() => btn.textContent = oldText, 1500);
+      });
+    }
+
+    function share(title, text) {
+      const url = window.location.href;
+      if (navigator.share) { navigator.share({ title, text, url }).catch(()=>{}); } 
+      else { navigator.clipboard.writeText(url); alert('Link copied!'); }
+    }
+
+    function playTrack(url, label) {
+      const player = document.getElementById('player');
+      document.getElementById('nowPlaying').textContent = 'Now Playing: ' + label;
+      player.src = url;
+      player.play().catch(()=>{});
+    }
+
+    function openLightbox(src) {
+      document.getElementById('lb-img').src = src;
+      document.getElementById('lightbox').style.display = 'flex';
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightbox').style.display = 'none';
+      document.getElementById('lb-img').src = '';
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('y').textContent = new Date().getFullYear();
+    });
+  </script>
+</head>
+<body>
+  <div class="wrap">
+    
+    <header class="hero">
+      <div>
+        <span class="pill" aria-label="Edition information">First Edition • Print-on-Demand • Document Control</span>
+        <h1 class="title">PT$D<br><span class="subtitle">Truth as Currency in a Market of Denial</span></h1>
+        <p class="intro-text">This launch runs on friends + the quality of the argument. No stockpile. No budget. Your order and review are the signal.</p> 
+        <blockquote>“A shared, dark laugh for resilience.”</blockquote>
+        <div class="cta-row">
+          <a class="btn primary" href="https://www.amazon.com/PT-Truth-Currency-Market-Denial/dp/B0H3L2RP9P/" target="_blank" rel="noopener noreferrer" id="buyLink">Send a Signal (Buy)</a>
+          <button class="btn" type="button" onclick="share('PT$D — First Edition', 'Help us juice the algorithm: buy, review, and share this link.')">Share This Page</button>
+          <button class="btn" type="button" onclick="copyText('buyLink', 'copyBtn')" id="copyBtn">Copy Buy Link</button>
+        </div>
+        <p class="note" style="margin-top:10px">Early <strong>orders</strong> + <strong>honest reviews</strong> teach the algorithm what matters. Print-on-demand means no author stash—your purchase is the release.</p>
+      </div>
+      <div>
+        <div class="card">
+          <img src="/images/cover.jpg" alt="PT$D cover" style="width:100%; height:auto; border-radius:12px; display:block; background:#0f1115;" fetchpriority="high" />
+          <div class="flex" style="margin-top:12px; justify-content:space-between;">
+            <span class="tag">v1.0 • First Edition</span>
+          </div>
+        </div>
+      </div>
+    </header>
+<section class="card">
+      <h2>Get the Book & Audiobook</h2>
+      <p class="note" style="margin-bottom:12px;">Choose your preferred format and platform below. The physical paperback is our primary release format.</p>
+      
+      <div class="grid">
+        <div class="pdf-list">
+          
+          <!-- Amazon Paperback (Paperback) -->
+          <a href="https://www.amazon.com/PT-Truth-Currency-Market-Denial/dp/B0H3L2RP9P/" target="_blank" rel="noopener noreferrer">
+            <span class="flex">
+              <img src="https://www.google.com/s2/favicons?domain=amazon.com&sz=32" width="20" height="20" alt="Amazon" style="border-radius:4px;" />
+              <span>📚 <strong>Amazon Paperback</strong></span>
+            </span>
+            <span class="tag" style="border-color: var(--accent); color: var(--accent);">Paperback</span>
+          </a>
+
+          <!-- Amazon eBook -->
+          <a href="https://www.amazon.com/PT-Truth-Currency-Market-Denial-ebook/dp/B0H3MBZ8ZK/" target="_blank" rel="noopener noreferrer">
+            <span class="flex">
+              <img src="https://www.google.com/s2/favicons?domain=amazon.com&sz=32" width="20" height="20" alt="Amazon" style="border-radius:4px;" />
+              <span>📱 <strong>Amazon Kindle eBook</strong></span>
+            </span>
+            <span class="tag">eBook</span>
+          </a>
+
+          <!-- Google Play Audiobook -->
+          <a href="https://play.google.com/store/audiobooks/details/Thomas_Dwyer_PT_D?id=AQAAAEC6hXnF0M&hl=en_US" target="_blank" rel="noopener noreferrer">
+            <span class="flex">
+              <img src="https://www.google.com/s2/favicons?domain=play.google.com&sz=32" width="20" height="20" alt="Google Play" style="border-radius:4px;" />
+              <span>🎧 <strong>Google Play</strong></span>
+            </span>
+            <span class="tag">Audiobook</span>
+          </a>
+
+          <!-- Apple Books Audiobook -->
+          <a href="https://books.apple.com/us/audiobook/pt%24d-truth-as-currency-in-a-market-of-denial/id6778746146" target="_blank" rel="noopener noreferrer">
+            <span class="flex">
+              <img src="https://www.google.com/s2/favicons?domain=apple.com&sz=32" width="20" height="20" alt="Apple" style="border-radius:4px;" />
+              <span>🎧 <strong>Apple Books</strong></span>
+            </span>
+            <span class="tag">Audiobook</span>
+          </a>
+
+          <!-- Kobo Audiobook -->
+          <a href="https://www.kobo.com/us/en/audiobook/pt-d?sId=b30bad7f-1cd7-443d-8f1c-73718a7f4e38&ssId=Oy78vHWChIXtVTdDz7rx_" target="_blank" rel="noopener noreferrer">
+            <span class="flex">
+              <img src="https://www.google.com/s2/favicons?domain=kobo.com&sz=32" width="20" height="20" alt="Kobo" style="border-radius:4px;" />
+              <span>🎧 <strong>Kobo (Rakuten)</strong></span>
+            </span>
+            <span class="tag">Audiobook</span>
+          </a>
+
+        </div>
+      </div>
+    </section>
+    <section class="card">
+      <h2>Sample PDF</h2>
+      <p class="note">Mobile-first approach: open the PDF in a new tab (best experience on phones). Desktop users can optionally toggle an inline preview.</p>
+      <div class="cta-row" style="margin-bottom:10px">
+        <a class="btn primary xl" href="/samples/PT%24D%20Sample.pdf" target="_blank" rel="noopener noreferrer">Open PDF in New Tab</a>
+        <a class="btn xl" href="/samples/PT%24D%20Sample.pdf" download="PTSD_FirstEdition_Sample.pdf">Download PDF</a>
+      </div>
+      <details>
+        <summary>Show Inline Preview (Desktop)</summary>
+        <div class="small" style="margin:8px 0 12px">Inline preview may be clunky on some mobile browsers. Use the buttons above if it stalls.</div>
+        <iframe id="pdfPreview" title="PDF preview" src="/samples/PT%24D%20Sample.pdf" loading="lazy" style="width:100%; height:70vh; border:1px solid rgba(255,255,255,0.1); border-radius:12px; background:#0f1115"></iframe>
+      </details>
+    </section>
+
+    <section class="card">
+      <h2>Listen: Sample Audio</h2>
+      <div class="note" style="margin-bottom:10px">Pick a track below. Direct links are provided for downloads and stubborn browsers.</div>
+      <div class="grid" style="gap:12px">
+        <div class="pdf-list">
+          <!-- Updated Audio Links -->
+          <a href="/audio/PT%24D_preface_about.mp3" target="_blank" onclick="event.preventDefault(); playTrack('/audio/PT%24D_preface_about.mp3', 'Preface and About');">
+            <span><strong>Preface and About</strong></span>
+            <span class="tag">Listen / Download</span>
+          </a>
+          <a href="/audio/PT%24D_introduction.mp3" target="_blank" onclick="event.preventDefault(); playTrack('/audio/PT%24D_introduction.mp3', 'Introduction');">
+            <span><strong>Introduction</strong></span>
+            <span class="tag">Listen / Download</span>
+          </a>
+        </div>
+        <div class="card" style="background:rgba(255,255,255,0.03)">
+          <div class="flex" style="justify-content:space-between"><strong id="nowPlaying">Now Playing: —</strong><span class="tag">Audio</span></div>
+          <audio id="player" controls preload="none" style="width:100%; margin-top:8px;"></audio>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Source Code / AI Context</h2>
+      <p class="intro-text">The raw ideas in this book are open-source. If you are feeding an LLM, auditing the frameworks, or using this for system design, you can access the raw text repository for free.</p>
+      <div class="cta-row" style="margin-bottom:10px">
+        <!-- Updated Markdown Link -->
+        <a class="btn" href="https://github.com/thomastron/thomastron.github.io/blob/main/PT%24D/PT%24D_Dwyer_raw_text.md" target="_blank" rel="noopener noreferrer">View Raw Markdown on GitHub</a>
+      </div>
+      <p class="small" style="margin-top:8px">
+        <strong>Note:</strong> The GitHub repo contains unformatted <span class="mono">.md</span> files optimized for machine reading and developer access. For the polished, long-form human reading experience, please <a href="https://www.amazon.com/dp/B0FS352Z6J" target="_blank" rel="noopener noreferrer">purchase the physical book</a>.
+      </p>
+    </section>
+
+    <section>
+      <h2>Visual Appendix</h2>
+      <div class="image-gallery">
+        <!-- Clean, JS-driven image tiles -->
+        <a href="javascript:void(0)" class="image-tile" onclick="openLightbox('/images/AppendixC.jpg')">
+          <img src="/images/AppendixC.jpg" alt="Appendix C visual sample" loading="lazy" />
+        </a>
+        <a href="javascript:void(0)" class="image-tile" onclick="openLightbox('/images/InfiniteApes.jpg')">
+          <img src="/images/InfiniteApes.jpg" alt="Infinite Apes Diagram" loading="lazy" />
+        </a>
+        <a href="javascript:void(0)" class="image-tile" onclick="openLightbox('/images/Sasquatch.jpg')">
+          <img src="/images/Sasquatch.jpg" alt="Sasquatch visual" loading="lazy" />
+        </a>
+        <a href="javascript:void(0)" class="image-tile" onclick="openLightbox('/images/Singularity.jpg')">
+          <img src="/images/Singularity.jpg" alt="Singularity graphic" loading="lazy" />
+        </a>
+        <a href="javascript:void(0)" class="image-tile" onclick="openLightbox('/images/Socratic.jpg')">
+          <img src="/images/Socratic.jpg" alt="Socratic quote visual" loading="lazy" />
+        </a>
+        <a href="javascript:void(0)" class="image-tile" onclick="openLightbox('/images/Suite.jpg')">
+          <img src="/images/Suite.jpg" alt="Suite layout visual" loading="lazy" />
+        </a>
+      </div>
+    </section>
+
+    <!-- Single Lightbox Container (replaces the 6 copies from before) -->
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+      <div class="lightbox-content">
+        <span class="lightbox-close">&times;</span>
+        <img id="lb-img" src="" alt="Fullscreen preview" />
+      </div>
+    </div>
+
+    <section class="card">
+      <h2>Why First Edition Samples?</h2>
+      <p class="callout">This launch is a live experiment: friends + argument quality are the marketing. If the sample resonates, the rest of the book compounds it. We trade hype for coherence.</p>
+      <details style="margin-top:10px">
+        <summary>Document Control Notes</summary>
+        <ul>
+          <li>Label files clearly: <span class="mono">PTSD_FirstEdition_v1.0</span>. Bump minor versions for typo fixes.</li>
+          <li>Include a footer in PDFs: edition + link.</li>
+          <li>Add a CHANGELOG.md in the repo for transparency.</li>
+        </ul>
+      </details>
+    </section>
+
+    <section class="grid two">
+      <div class="card">
+        <h2>Launch Protocol (Quick)</h2>
+        <ol>
+          <li>Buy a copy today (velocity matters).</li>
+          <li>Leave a short, honest review (teaches the machine what to surface).</li>
+          <li>Share this page with 1–2 people who will care.</li>
+        </ol>
+        <div class="share-row" style="margin-top:10px">
+          <button class="btn" type="button" onclick="share('PT$D — First Edition', 'I just grabbed the book. Here’s the sample + buy link:')">Share</button>
+          <a class="btn" target="_blank" href="https://twitter.com/intent/tweet?text=First%20edition%20sample%20of%20PT%24D%20%E2%80%94%20preface%2C%20intro%2C%20audio.&url=https%3A%2F%2Fthomastron.github.io%2F">X / Twitter</a>
+          <a class="btn" target="_blank" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fthomastron.github.io%2F">LinkedIn</a>
+        </div>
+        <p class="small" style="margin-top:8px">Insider note: early comments amplify discovery. Thanks for helping us train the recommendation layer.</p>
+      </div>
+    </section>
+
+    <footer style="margin: 40px 0 24px; color: var(--muted); font-size: 13px;">
+      <div class="flex" style="justify-content:space-between; flex-wrap:wrap; gap:8px">
+        <div>
+          © <span id="y"></span> Thomas Dwyer • First Edition • <a href="https://www.amazon.com/dp/B0FS352Z6J" target="_blank">Buy</a>
+        </div>
+        <div>Built for readers who prefer coherence over hype.</div>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
