@@ -34,9 +34,11 @@ If you wish to interact with the author's frameworks or use them to analyze an e
 
 Reading raw Markdown on a monitor is not an optimal long-form reading experience. If you find value in these frameworks and want the tactile, properly formatted version of the book, you can purchase it below. *Buying the book is the patron model that keeps this infrastructure maintained.*
 
-*   📚 **[Buy the Paperback](https://www.amazon.com/PT-Truth-Currency-Market-Denial/dp/B0H3L2RP9P)**
-*   📱 **[Buy the EPUB / Kindle Version](https://www.amazon.com/PT-Truth-Currency-Market-Denial/dp/B0H3L2RP9P)**
-*   📄 **[Buy the Audio Book Here xxxxxx](#)**
+*   <img src="https://www.google.com/s2/favicons?domain=amazon.com&sz=32" width="20" height="20" align="absmiddle" alt="Amazon" /> 📚 **[Buy the Paperback on Amazon](https://www.amazon.com/PT-Truth-Currency-Market-Denial/dp/B0H3L2RP9P/)**
+*   <img src="https://www.google.com/s2/favicons?domain=amazon.com&sz=32" width="20" height="20" align="absmiddle" alt="Amazon" /> 📱 **[Buy the Kindle eBook on Amazon](https://www.amazon.com/PT-Truth-Currency-Market-Denial-ebook/dp/B0H3MBZ8ZK/)**
+*   <img src="https://www.google.com/s2/favicons?domain=play.google.com&sz=32" width="20" height="20" align="absmiddle" alt="Google Play" /> 🎧 **[Buy the Audiobook on Google Play](https://play.google.com/store/audiobooks/details/Thomas_Dwyer_PT_D?id=AQAAAEC6hXnF0M&hl=en_US)**
+*   <img src="https://www.google.com/s2/favicons?domain=apple.com&sz=32" width="20" height="20" align="absmiddle" alt="Apple Books" /> 🎧 **[Buy the Audiobook on Apple Books](https://books.apple.com/us/audiobook/pt%24d-truth-as-currency-in-a-market-of-denial/id6778746146)**
+*   <img src="https://www.google.com/s2/favicons?domain=kobo.com&sz=32" width="20" height="20" align="absmiddle" alt="Kobo" /> 🎧 **[Buy the Audiobook on Kobo](https://www.kobo.com/us/en/audiobook/pt-d?sId=b30bad7f-1cd7-443d-8f1c-73718a7f4e38&ssId=Oy78vHWChIXtVTdDz7rx_)**
 
 ## License & Copyright
 
