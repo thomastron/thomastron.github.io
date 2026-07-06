@@ -27,13 +27,19 @@ This (sub)repository is structured for both human and machine readability:
 
 *   📄 **`PT$D_Dwyer_raw_text.md`** — The entire book in a single file, prefaced with XML system instructions. **Use this file for AI/RAG context injection.**
 
-## What this repository demonstrates (for evaluators)
+## Who This Book Is For
 
-**Lens: AI & Data Architecture:**  
->a ~130k-token, single-file Markdown deployment with embedded XML system instructions, engineered for direct LLM context loading and RAG integration. Loading it turns a static book into an active analytical tool — the frameworks can be queried, debated, and applied to new cases. The text was *produced* the same way it deploys: under a hierarchical governance system (constitution → process → behavioral instruction set) with mode-scoped AI permissions, drift detection, and human sign-off on every output — behavioral governance operated at production scale for two years.
+**Lens: _The General Reader (The Thinker)_:**  
+>No specialty required. The book crosses psychology, economics, engineering, AI, and family systems, but every framework is written to be usable without expertise in its home domain — Chapter 3 contains math that can scare people off, and it was deliberately written so the ideas land and remain usable even if you never touch the equations. What the book does ask of you is harder than credentials: tolerance for nuance, and the capacity to hold a question open without grasping at the nearest comfortable answer — what Keats called Negative Capability. If you need each chapter to resolve into tidy reassurance, this book will frustrate you; that is a design decision, not an accident. If you're the kind of thinker who keeps noticing what others prefer not to look at, it was written for you — and it will hand you the vocabulary for what you've been noticing.
+>
+**Lens: _Philosophy & Epistemology_:**  
+>PT$D is applied epistemology under adversarial conditions. Its contribution is synthesis rather than invention — connective tissue, not new bones — engaging Frankl, Havel ("living in truth"), Keats (Negative Capability), game theory, Bayesian calibration, and behavioral economics, and operationalizing them into testable structures: a credibility formula (Credibility = Intelligence × Obligation ÷ Insulation), temporal binding (denial as borrowing against the future; obligation as being bound to consequence across time), and a taxonomy of volitional versus cognitive failure ("won't look" versus "can't see"). The move that may interest you most: the frameworks are stated with their failure modes attached, and the text is optimized for internal consistency even where that weakens its rhetorical force. It is built to be argued with — the raw format exists partly so you can load it into an AI and stress-test it.
 
-**Lens: Systems & Mechanical Engineering:**  
->a 17-chapter systems analysis built and version-controlled like an engineering project — explicit change control, failure-mode taxonomies, and traceability from every claim back to its grounding. The subject is institutional failure; the method is the same one used to document machines that operate at 6000m depth: find the failure points while they are still addressable. 
+**Lens: _AI & Data Architecture_:**  
+>A ~130k-token, single-file Markdown deployment with embedded XML system instructions, engineered for direct LLM context loading and RAG integration. Loading it turns a static book into an active analytical tool — the frameworks can be queried, debated, and applied to new cases. The text was *produced* the same way it deploys: under a hierarchical governance system (constitution → process → behavioral instruction set) with mode-scoped AI permissions, drift detection, and human sign-off on every output — behavioral governance operated at production scale for two years.
+
+**Lens: _Systems & Mechanical Engineering_:**  
+>A 17-chapter systems analysis built and version-controlled like an engineering project — explicit change control, failure-mode taxonomies, and traceability from every claim back to its grounding. The subject is institutional failure; the method is the same one used to document machines that operate at 6000m depth: find the failure points while they are still addressable. 
 
 ## The companion machinery:   
 the knowledge-graph architecture and Socratic tooling that govern this framework live at [github.com/thomastron/personal-constitution](https://github.com/thomastron/personal-constitution) — 250+ typed nodes, load-bearing edge analysis, dual-format (Markdown + JSONC) design.
