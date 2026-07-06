@@ -14,6 +14,7 @@ Because this text is meant to serve as a diagnostic tool for systems thinkers an
 2. **Frictionless Reference:** Practitioners can search, link to, and reference specific frameworks (e.g., *The Credibility Formula*) without parsing a PDF or carrying a physical book.
 3. **Open Epistemology:** The ideas and frameworks are free to access, verify, and utilize. Purchasing the compiled book subsidizes the time it took to build them and continued efforts.
 
+
 ## Core Thesis
 
 *PT$D* is a structural diagnosis of institutional and interpersonal failure. It argues that the current systemic breakdown we are experiencing is not a product of cognitive deficit ("they can't see"), but a volitional refusal ("they won't look"). It argues that many contemporary failures arise less from ignorance than from the psychological, social, and institutional incentives that make looking away easier than confronting uncomfortable realities.
@@ -25,6 +26,17 @@ The book maps the "Architecture of Abdication"—how systems incentivize deniali
 This (sub)repository is structured for both human and machine readability:
 
 *   📄 **`PT$D_Dwyer_raw_text.md`** — The entire book in a single file, prefaced with XML system instructions. **Use this file for AI/RAG context injection.**
+
+## What this repository demonstrates (for evaluators)
+
+**Lens: AI & Data Architecture:**  
+>a ~130k-token, single-file Markdown deployment with embedded XML system instructions, engineered for direct LLM context loading and RAG integration. Loading it turns a static book into an active analytical tool — the frameworks can be queried, debated, and applied to new cases. The text was *produced* the same way it deploys: under a hierarchical governance system (constitution → process → behavioral instruction set) with mode-scoped AI permissions, drift detection, and human sign-off on every output — behavioral governance operated at production scale for two years.
+
+**Lens: Systems & Mechanical Engineering evaluators:**  
+>a 17-chapter systems analysis built and version-controlled like an engineering project — explicit change control, failure-mode taxonomies, and traceability from every claim back to its grounding. The subject is institutional failure; the method is the same one used to document machines that operate at 6000m depth: find the failure points before addresable time runs out. 
+
+## **The companion machinery:**  
+the knowledge-graph architecture and Socratic tooling that govern this framework live at [github.com/thomastron/personal-constitution](https://github.com/thomastron/personal-constitution) — 250+ typed nodes, load-bearing edge analysis, dual-format (Markdown + JSONC) design.
 
 ## How to Use This with AI
 
@@ -51,4 +63,4 @@ The raw text hosted in this repository is licensed under a **[Creative Commons A
 *   **Under the following terms:**
     *   **Attribution:** You must give appropriate credit and provide a link to this repository.
     *   **NonCommercial:** You may not use the material for commercial purposes (you cannot sell this text).
-    *   **NoDerivatives:** If you remix, transform, or build upon the material, you may not distribute the modified material as your own work.
+    *   **NoDerivatives:** If you remix, transform, or build upon the material, you may not distribute the modified material as your own work. Please contact me for translations. I will likely grant rights to translation works without fees. 
