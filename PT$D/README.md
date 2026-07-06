@@ -10,7 +10,7 @@ This book was not written as a commercial persuasion campaign; it was engineered
 
 Because this text is meant to serve as a diagnostic tool for systems thinkers and practitioners, the raw ideas must remain accessible. By hosting the raw Markdown on GitHub, this repository serves three specific functions:
 
-1. **AI Context Loading:** The native `.md` format is highly token-efficient (approximately 130k tokens.)  Users can easily copy the monolithic text file into Large Language Models (Claude, ChatGPT, Gemini) to establish context window for high-level debate, systemic analysis, and framework application.
+1. **AI Context Loading:** The native `.md` format is highly token-efficient (approximately 130k tokens).  Users can easily copy the monolithic text file into Large Language Models (Claude, ChatGPT, Gemini) to establish a context window for high-level debate, systemic analysis, and framework application.
 2. **Frictionless Reference:** Practitioners can search, link to, and reference specific frameworks (e.g., *The Credibility Formula*) without parsing a PDF or carrying a physical book.
 3. **Open Epistemology:** The ideas and frameworks are free to access, verify, and utilize. Purchasing the compiled book subsidizes the time it took to build them and continued efforts.
 
@@ -32,15 +32,15 @@ This (sub)repository is structured for both human and machine readability:
 **Lens: AI & Data Architecture:**  
 >a ~130k-token, single-file Markdown deployment with embedded XML system instructions, engineered for direct LLM context loading and RAG integration. Loading it turns a static book into an active analytical tool — the frameworks can be queried, debated, and applied to new cases. The text was *produced* the same way it deploys: under a hierarchical governance system (constitution → process → behavioral instruction set) with mode-scoped AI permissions, drift detection, and human sign-off on every output — behavioral governance operated at production scale for two years.
 
-**Lens: Systems & Mechanical Engineering evaluators:**  
->a 17-chapter systems analysis built and version-controlled like an engineering project — explicit change control, failure-mode taxonomies, and traceability from every claim back to its grounding. The subject is institutional failure; the method is the same one used to document machines that operate at 6000m depth: find the failure points before addresable time runs out. 
+**Lens: Systems & Mechanical Engineering:**  
+>a 17-chapter systems analysis built and version-controlled like an engineering project — explicit change control, failure-mode taxonomies, and traceability from every claim back to its grounding. The subject is institutional failure; the method is the same one used to document machines that operate at 6000m depth: find the failure points while they are still addressable. 
 
-## **The companion machinery:**  
+## The companion machinery:   
 the knowledge-graph architecture and Socratic tooling that govern this framework live at [github.com/thomastron/personal-constitution](https://github.com/thomastron/personal-constitution) — 250+ typed nodes, load-bearing edge analysis, dual-format (Markdown + JSONC) design.
 
 ## How to Use This with AI
 
-If you wish to interact with the author's frameworks or use them to analyze an external problem, navigate to `PT$D_Dwyer_raw_text.md`, to save the file and drag it AI conversation. 
+If you wish to interact with the author's frameworks or use them to analyze an external problem, navigate to `PT$D_Dwyer_raw_text.md`, to save the file and drag it into an AI conversation. 
 
 ## Acquire the Formatted Book
 
