@@ -60,7 +60,7 @@ Reading raw Markdown on a monitor is not an optimal long-form reading experience
 
 ## License & Copyright
 
-**© 2026 Thomas Dwyer. All Rights Reserved.**
+**© 2026 Thomas Dwyer. Some Rights Reserved.**
 
 The raw text hosted in this repository is licensed under a **[Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License](https://creativecommons.org/licenses/by-nc-nd/4.0/)** (CC BY-NC-ND 4.0).
 
