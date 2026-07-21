@@ -62,7 +62,9 @@ Reading raw Markdown on a monitor is not an optimal long-form reading experience
 
 **© 2026 Thomas Dwyer. Some Rights Reserved.**
 
-The raw text hosted in this repository is licensed under a **[Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License](https://creativecommons.org/licenses/by-nc-nd/4.0/)** (CC BY-NC-ND 4.0).
+The raw digital text hosted in this repository is licensed under a **[Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License](https://creativecommons.org/licenses/by-nc-nd/4.0/)** (CC BY-NC-ND 4.0). 
+
+The physical paperback, commercial eBook, and audiobook editions are published under standard copyright (All rights reserved).
 
 **What this means:**
 *   **You are free to:** Share, copy, and redistribute the material in any medium or format (including loading it into AI models for personal use).
