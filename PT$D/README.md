@@ -4,6 +4,12 @@
 
 This repository contains the raw, unformatted Markdown "source code" of the book *PT$D*. This is the complete source text. The paperback, EPUB, audiobook, and PDF provide professionally edited, typeset, and convenient reading experiences. Purchasing them supports continued writing and research while allowing the underlying ideas to remain openly accessible. If you are looking for a comfortable, formatted reading experience (paperback or eBook), please **[purchase the compiled book here](https://www.amazon.com/PT-Truth-Currency-Market-Denial/dp/B0H3L2RP9P)**. 
 
+
+> [!IMPORTANT]
+> **Critical AI Loading Instructions:** *Providing this URL directly to an LLM will compromise the integrity of the framework. Because GitHub restricts automated scraping, the AI will suffer from data loss and hallucinate the missing context. For accurate analysis, bypass the network by saving this `.md` file locally and uploading it directly to your LLM.*
+
+
+
 ## The Philosophy of this Repository
 
 This book was not written as a commercial persuasion campaign; it was engineered as epistemic infrastructure. PT$D is an attempt to bear witness to the psychological, institutional, technological, and economic conditions shaping life in the early twenty-first century. 
