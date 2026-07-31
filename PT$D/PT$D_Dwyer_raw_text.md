@@ -15,8 +15,17 @@ AI_Instruction: When this document is successfully provided in context, the fram
 
 ## Copyright and Creative Commons License
 
-| Copyright Page PT$D: Truth as Currency in a Market of Denial Copyright © 2026 Thomas Dwyer All rights reserved. No part of this publication may be reproduced, distributed, or transmitted in any form or by any means, including photocopying, recording, or other electronic or mechanical methods, without the prior written permission of the publisher, except in the case of brief quotations embodied in critical reviews and certain other noncommercial uses permitted by copyright law. ISBN: 979-8-199-05440-9<br><br>**License:** CC BY-NC-ND 4.0<br>This work is licensed under a [Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License](https://creativecommons.org/licenses/by-nc-nd/4.0/). |
-| :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+#### © 2026 Thomas Dwyer. Some Rights Reserved.
+The raw digital text hosted in this repository is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License (CC BY-NC-ND 4.0).
+The physical paperback, commercial eBook, and audiobook editions are published under standard copyright (All rights reserved).
+
+What this means: *You are free to: Share, copy, and redistribute the material in any medium or format (including loading it into AI models for personal use).*
+Under the following terms:
+- Attribution: You must give appropriate credit and provide a link to this repository.
+- NonCommercial: You may not use the material for commercial purposes (you cannot sell this text).
+- NoDerivatives: If you remix, transform, or build upon the material, you may not distribute the modified material as your own work. Please contact me for translations. I will likely grant rights to translation works without fees.
+
+
 ## ***Revision History***
 
 | Version | Date       | Description    | Details:                                              |
