@@ -34,6 +34,12 @@ Under the following terms:
 | **1.0** | 2025-10-02 | first edition  | initial release                                       |
 | **1.1** | 2026-06-01 | second edition | adjust focus on time, clarify obligation, 7x10 to 6x9 |
 | **1.1.1** | 2026-08-11 | second edition, corrected | endnote numbering realigned (footnote/endnote merge); note 57 added (Ch. 17, Moltbook) |
+| **1.1.2** | 2026-08-12 | second edition, corrected | restored footnotes lost in conversion; endnote 6/7 fixed, endnote Markdown binding syntax corrected; Conclusion figure corrected to 55,720; Aung San Suu Kyi entry expanded |
+
+*This repository hosts an abridged edition: it omits Chapter 18 and its
+supporting appendices, which appear in the paperback, eBook, and audiobook.
+Version numbers are shared across all editions.*
+
 
 ## ***Table of Contents***
 
@@ -184,7 +190,7 @@ Under the following terms:
       - [9\. The Subtle Agents of Truth ](#9-the-subtle-agents-of-truth-)
       - [10\. The Uncalibrated Idealists ](#10-the-uncalibrated-idealists-)
       - [11\. The Institutional Defenders](#11-the-institutional-defenders)
-  - [Appendix D: Thinkers and Influencers Referenced in the Book](#appendix-f:-thinkers-and-influencers-referenced-in-the-book)
+  - [Appendix D: Thinkers and Influencers Referenced in the Book](#appendix-d:-thinkers-and-influencers-referenced-in-the-book)
       - [Historical (Chronological)](#historical-chronological)
       - [Modern (Alphabetical)](#modern-alphabetical)
   - [Glossary of Key Terms & Concepts](#glossary-of-key-terms-&-concepts)
@@ -2374,7 +2380,7 @@ What of the shadow of determinism that haunts these reflections? If our actions 
 
 This is where diagnosis must become testimony. Having spent this entire book dissecting the machinery of denial, the principles it identifies demand application—not in the abstract, but to the most uncomfortable truths of our present moment. To flinch here would be to invalidate everything that has come before.
 
-For me, no issue tests the integrity of that coherence more than the unfolding catastrophe in Gaza. Having dissected the machinery of denial, I feel morally obligated not to deploy it myself. I know the word "genocide" is contested. I've sat with that contestation. And I still cannot call it anything else. I cannot look at the staggering number of women and children killed and call it anything other than what my conscience and the evidence tell me it is: a genocide. And the United States is enabling it. I have not heard an argument that can justify the 57,000 to 1,706 death toll, a 33-to-1 ratio. If one exists, I am listening.
+For me, no issue tests the integrity of that coherence more than the unfolding catastrophe in Gaza. Having dissected the machinery of denial, I feel morally obligated not to deploy it myself. I know the word "genocide" is contested. I've sat with that contestation. And I still cannot call it anything else. I cannot look at the staggering number of women and children killed and call it anything other than what my conscience and the evidence tell me it is: a genocide. And the United States is enabling it. I have not heard an argument that can justify the ~55,000 to 1,706 death toll, a 33-to-1 ratio. If one exists, I am listening.
 
 **|||||||||||||||||||||||||||||||||   :   |**
 
@@ -2591,7 +2597,7 @@ When we fail to achieve Inner Coherence in the face of this dissonance, we tend 
 **Archetypal Examples:** A Justice Department lawyer who uses internal regulations to block an illegal surveillance program; a civil servant who insists on applying every rule in the book to delay an unethical project; a university dean who defends academic freedom by meticulously citing faculty governance policies that the regime would rather ignore; a judge who acquits a dissident on a technicality, upholding the letter of the law against the spirit of the witch-hunt.
 
 
-## ***Appendix D: Thinkers and Influencers Referenced in the Book*** {#appendix-f:-thinkers-and-influencers-referenced-in-the-book}
+## ***Appendix D: Thinkers and Influencers Referenced in the Book*** {#appendix-d:-thinkers-and-influencers-referenced-in-the-book}
 
 This index provides context for the key figures whose ideas are engaged with, built upon, or challenged throughout the book. Each entry offers a brief background on the thinker’s contributions and then explains their specific relevance to this book’s central arguments.
 
@@ -2711,7 +2717,7 @@ This index provides context for the key figures whose ideas are engaged with, bu
 
 **Peter Singer** A moral philosopher who is one of the most influential—and controversial—living philosophers. His work has had a profound practical impact, challenging conventional notions of morality and inspiring the animal rights and effective altruism movements. His “drowning child” thought experiment is used as the ultimate “stress test” for Inner Coherence, forcing a confrontation with the logical endpoint of the book’s ethical claims.
 
-**Aung San Suu Kyi** A Burmese politician, diplomat, and Nobel Peace Prize laureate, whose long struggle for democracy against military rule made her an international symbol of peaceful resistance. Her 1990 essay, "Freedom from Fear," provides a profound analysis of the psychology of oppression, arguing that it is fear, not power, that is the ultimate source of corruption. Her powerful, poetic metaphor contrasting passive conformity (“water in the cupped hands” of power) with principled integrity (“splinters of glass”) is used in this book as the ultimate inspirational image for developing Inner Coherence and finding the courage to Live in Truth.
+**Aung San Suu Kyi** A Burmese politician, diplomat, and Nobel Peace Prize laureate, whose long struggle for democracy against military rule made her an international symbol of peaceful resistance. Her 1990 essay, "Freedom from Fear," provides a profound analysis of the psychology of oppression, arguing that it is fear, not power, that is the ultimate source of corruption. Her powerful, poetic metaphor contrasting passive conformity (“water in the cupped hands” of power) with principled integrity (“splinters of glass”) is used in this book as the ultimate inspirational image for developing Inner Coherence and finding the courage to Live in Truth. Her later record complicates the source without diminishing the text. As Myanmar's State Counsellor she did not command the military — the 2008 constitution reserved Defence, Home Affairs, and Border Affairs to the Tatmadaw — but in December 2019 she personally appeared at the International Court of Justice to defend the state against charges of genocide against the Rohingya. In February 2021 that same military deposed and imprisoned her. This book cites the metaphor, not the person, and the distinction is deliberate: an idea about integrity is not warranted by its author's fidelity to it. If anything, her own claim — that it is fear of losing power that corrupts those who wield it — reads more sharply after 2019, not less.
 
 **Technology Connections (Alec Watson)** The creator of a popular YouTube channel who has a beloved talent for explaining the history and inner workings of everyday technologies with deep research, clarity, and a charmingly nerdy enthusiasm. He makes complex engineering concepts accessible and fascinating. His analyses of “Algorithmic Complacency” and “context collapse” provide clear explanations for the technological mechanisms that underpin the Architecture of Ignorance.
 
@@ -2782,8 +2788,6 @@ D
 **Digital Disobedience:** An informal term for the conscious act of resisting the passive consumption and manipulation inherent in modern digital architectures by reclaiming agency over one’s data, attention, and cognitive processes. *Example: Using privacy-enhancing tools or crafting AI prompts that demand rigor instead of sycophancy are acts of digital disobedience.* (Ch 9, 15, 17, Conclusion, Appendix A)
 
 **Discount Rate (R):** A concept borrowed from finance and used metaphorically to represent a society’s confidence in its future. A high R reflects low trust and high risk, which devalues future promises, erodes credibility, and forces short-term, instrumental thinking. *Example: In a corrupt country with high political instability (a high* R*), people are less likely to make long-term investments because they can’t trust that the future value will materialize.* (Ch 4, 6, 15, Appendix A)
-
-**Double Helix of Deceit:** An informal metaphor used by the narrator to describe the interwoven patterns of extremist ideology and “conman”-like operational behavior in the Elon Musk case study. *Example: Using extremist rhetoric to create controversy that distracts from a product’s failure is one twist in the double helix of deceit.* (Ch 17\)
 
 **Draped Apes:** The narrator’s central, informal metaphor for the human condition: highly intelligent primates (“apes”) adorned (“draped”) with complex culture, yet still operating with a cognitive architecture prone to bias and irrationality. It is used to foster empathy and humility about our shared fallibility. *Example: Recognizing that even a brilliant scientist might fall for a conspiracy theory because our shared “Draped Ape” nature makes us all susceptible to emotional reasoning.* (Ch 2, 3, 5, 7, 9, 10, 13, 16, 17, Conclusion, About the Author, Intro, Appendices A & B)
 
@@ -2912,60 +2916,69 @@ T
 
 ## ***Endnotes*** {#endnotes}
 
-\[1\]:	John Keats, Letter to George and Thomas Keats, 21 December 1817\.  
-\[2\]: 	Neil Brennan, Neil Brennan: Blocks, Netflix Special, 2022\.  
-\[3\]: 	The Simpsons, Season 12, Episode 9, "HOMЯ," 2001\.  
-\[4\]: 	Alan Greenspan, "The Challenge of Central Banking in a Democratic Society," Speech at the American Enterprise Institute, 5 December 1996\.  
-\[5\]: 	Robert J. Shiller, Irrational Exuberance, Princeton University Press, 2000\.  
-\[6,7\]: 	Evan Osnos, "The Haves and the Have-Nots," The New Yorker, 11 Sept. 2023\.  
-\[8\]: 	Widely attributed to Richard Feynman, see "The Pleasure of Finding Things Out," 1981\.  
-\[9\]: 	Malcolm Gladwell, Revisionist History podcast, "I Hate the Ivy League" series, Pushkin Industries, 2021\.  
-\[10,11\]:Felitti VJ, Anda RF, et al., "Relationship of Childhood Abuse and Household Dysfunction to Many of the Leading Causes of Death in Adults," American Journal of Preventive Medicine, vol. 14, no. 4, 1998, pp. 245–58.  
-\[12\]: 	Plato, Apology, 21d.  
-\[13\]: 	Ward Farnsworth, The Socratic Method: A Practitioner's Handbook, Godine, 2021\.  
-\[14\]: 	JB Pritzker, Commencement Address at Northwestern University, 13 June 2022\.  
-\[15\]: 	Dietrich Bonhoeffer, Letters and Papers from Prison, Simon & Schuster.  
-\[16\]: 	Carlo M. Cipolla, "The Basic Laws of Human Stupidity," 1976\.  
-\[17\]: 	Charles P. Pierce, Idiot America: How Stupidity Became a Virtue in the Land of the Free, Doubleday, 2009\.  
-\[18\]: 	Richard Hofstadter, Anti-intellectualism in American Life, Alfred A. Knopf, 1963\.  
-\[19\]: 	Alasdair MacIntyre, After Virtue, University of Notre Dame Press, 1981\. See also David Brooks, "How America Got Mean," The Atlantic, Sept. 2023\.  
-\[20\]: 	Michael T. Luongo, "A White House Adviser Quoted Himself in His Books. The Name He Used Was an Anagram of His Own," The New York Times, 22 October 2019\.  
-\[21\]: 	Robert Reich, "The Fracturing of the Middle Class," Speech, 2 November 1994\.  
-\[22\]: 	Jonathan Haidt, "Why the Past 10 Years of American Life Have Been Uniquely Stupid," The Atlantic, May 2022\.  
-\[23\]: 	Max Weber, Economy and Society, 1922\.  
-\[24\]: 	Daniel H. Pink, Drive: The Surprising Truth About What Motivating Us, Riverhead Books, 2009\.  
-\[25\]: 	Aung San Suu Kyi, "Freedom from Fear," Speech, 1990\.  
-\[26\]: 	Nate Raymond, "UnitedHealth investors sue, saying it misled them about a probe," Reuters, 4 August 2023\.  
-\[27\]: 	Citizens United v. Federal Election Commission, 558 U.S. 310 (2010).  
-\[28\]: 	Ryan Holiday, "This Is a Stupid Problem | Ask A Stoic," Daily Stoic Podcast, 19 November 2021\.  
-\[29\]: 	Catherine Liu, Virtue Hoarders: The Case Against the Professional-Managerial Class, University of Minnesota Press, 2021\.  
-\[30\]: 	Tom Nichols, The Death of Expertise: The Campaign Against Established Knowledge and Why it Matters, Oxford University Press, 2017\.  
-\[31\]: 	Adam Curtis, The Century of the Self, BBC, 2002\.  
-\[32\]: 	Edward Bernays, Propaganda, Horace Liveright, 1928\.  
-\[33\]: 	Aldous Huxley, Brave New World, Chatto & Windus, 1932\.
 
-\[34\]: 	Ernest Becker, The Denial of Death, The Free Press, 1973\.  
-\[35\]:	Edward S. Herman and Noam Chomsky, Manufacturing Consent: The Political Economy of the MassMedia, Pantheon Books, 1988\.  
-\[36\]: 	Susan Jacoby, The Age of American Unreason, Pantheon Books, 2008\.  
-\[37\]: 	Kurt Andersen, Fantasyland: How America Went Haywire: A 500-Year History, Random House, 2017\.  
-\[38\]: 	Carole Cadwalladr, "This Is What a Digital Coup Looks Like," TED Talk, April 2025\.  
-\[39\]: 	Alec Watson, Technology Connections YouTube Channel.  
-\[40\]: 	Alex M. Li, et al., "The Geometries of Truth Are Orthogonal Across Tasks," arXiv:2506.08572 \[cs.LG\], 10 June 2025\.  
-\[41\]: 	David Foster Wallace, "This is Water," Kenyon College Commencement Speech, 21 May 2005\.  
-\[42\]: 	Carole Cadwalladr, "I’ve seen what happens when we fail to regulate big tech. Here’s my warning for the new age of AI," The Observer, 3 September 2023\.  
-\[43\]: 	Mehdi Hasan, Win Every Argument: The Art of Debating, Persuading, and Public Speaking, Henry Holt and Co., 2023\.  
-\[44\]: 	Viktor Frankl, Man's Search for Meaning, Beacon Press, 1959\.  
-\[45\]: 	Thomas Cathcart and Daniel Klein, Plato and a Platypus Walk Into a Bar...: Understanding Philosophy Through Jokes, Abrams Image, 2007\.  
-\[46\]: 	Aristotle, Nicomachean Ethics, Book VI.  
-\[47\]: 	Ta-Nehisi Coates, Interview with Mehdi Hasan, Zeteo News, 9 May 2024\.  
-\[48\]: 	Todd Kashdan, Curious?: Discover the Missing Ingredient to a Fulfilling Life, William Morrow, 2009\.  
-\[49\]: 	Donald Rumsfeld, U.S. Department of Defense news briefing, 12 February 2002\.  
-\[50\]: 	Johann Hari, Chasing the Scream: The First and Last Days of the War on Drugs, Bloomsbury, 2015\.  
-\[51\]: 	Václav Havel, "The Power of the Powerless," 1978\.  
-\[52\]: 	Keena Blum, "things your mom should've told you," YouTube Channel (@momshouldveknown).  
-\[53\]: 	Singer, Peter. "Famine, Affluence, and Morality." Philosophy & Public Affairs, vol. 1, no. 3, 1972, pp. 229–43.  
-\[54\]: 	Gawande, Atul. The Checklist Manifesto: How to Get Things Right. Metropolitan Books, 2009\.   
-\[55\]: 	Stephen Wolfram, "What Is ChatGPT Doing … and Why Does It Work?," Stephen Wolfram Writings, 14 February 2023\.  
-\[56\]: 	"Gaza war \- Wikipedia." Wikipedia, en.m.wikipedia.org/wiki/Gaza\_war. Accessed 11 June 2025\.  
-\[57\]:   David Reid, "Moltbook: AI bots use social network to create religions and deal digital drugs – but are some really humans in disguise?," The Conversation, 5 February 2026. See also John Koetsier, "AI Agents Created Their Own Religion, Crustafarianism, On An Agent-Only Social Network," Forbes, 30 January 2026; and Josh Quittner, "AI Agents Launched a Social Network and Spawned a Digital Religion Overnight," Decrypt, 30 January 2026. Attribution of these behaviours to autonomous agents is contested: Reid reports evidence of humans operating spoofed accounts, and treats emergent behaviour versus reproduction of training-data patterns as unresolved.  
+[^1]:	John Keats, Letter to George and Thomas Keats, 21 December 1817\.  
+[^2]: 	Neil Brennan, Neil Brennan: Blocks, Netflix Special, 2022\.  
+[^3]: 	The Simpsons, Season 12, Episode 9, "HOMЯ," 2001\.  
+[^4]: 	Alan Greenspan, "The Challenge of Central Banking in a Democratic Society," Speech at the American Enterprise Institute, 5 December 1996\.  
+[^5]: 	Robert J. Shiller, Irrational Exuberance, Princeton University Press, 2000\.  
+[^6,7]: 	Evan Osnos, "The Haves and the Have-Nots," The New Yorker, 11 Sept. 2023\.  
+[^8]: 	Widely attributed to Richard Feynman, see "The Pleasure of Finding Things Out," 1981\.  
+[^9]: 	Malcolm Gladwell, Revisionist History podcast, "I Hate the Ivy League" series, Pushkin Industries, 2021\.  
+[^10,11]:Felitti VJ, Anda RF, et al., "Relationship of Childhood Abuse and Household Dysfunction to Many of the Leading Causes of Death in Adults," American Journal of Preventive Medicine, vol. 14, no. 4, 1998, pp. 245–58.  
+[^12]: 	Plato, Apology, 21d.  
+[^13]: 	Ward Farnsworth, The Socratic Method: A Practitioner's Handbook, Godine, 2021\.  
+[^14]: 	JB Pritzker, Commencement Address at Northwestern University, 13 June 2022\.  
+[^15]: 	Dietrich Bonhoeffer, Letters and Papers from Prison, Simon & Schuster.  
+[^16]: 	Carlo M. Cipolla, "The Basic Laws of Human Stupidity," 1976\.  
+[^17]: 	Charles P. Pierce, Idiot America: How Stupidity Became a Virtue in the Land of the Free, Doubleday, 2009\.  
+[^18]: 	Richard Hofstadter, Anti-intellectualism in American Life, Alfred A. Knopf, 1963\.  
+[^19]: 	Alasdair MacIntyre, After Virtue, University of Notre Dame Press, 1981\. See also David Brooks, "How America Got Mean," The Atlantic, Sept. 2023\.  
+[^20]: 	Michael T. Luongo, "A White House Adviser Quoted Himself in His Books. The Name He Used Was an Anagram of His Own," The New York Times, 22 October 2019\.  
+[^21]: 	Robert Reich, "The Fracturing of the Middle Class," Speech, 2 November 1994\.  
+[^22]: 	Jonathan Haidt, "Why the Past 10 Years of American Life Have Been Uniquely Stupid," The Atlantic, May 2022\.  
+[^23]: 	Max Weber, Economy and Society, 1922\.  
+[^24]: 	Daniel H. Pink, Drive: The Surprising Truth About What Motivating Us, Riverhead Books, 2009\.  
+[^25]: 	Aung San Suu Kyi, "Freedom from Fear," Speech, 1990\.  
+[^26]: 	Nate Raymond, "UnitedHealth investors sue, saying it misled them about a probe," Reuters, 4 August 2023\.  
+[^27]: 	Citizens United v. Federal Election Commission, 558 U.S. 310 (2010).  
+[^28]: 	Ryan Holiday, "This Is a Stupid Problem | Ask A Stoic," Daily Stoic Podcast, 19 November 2021\.  
+[^29]: 	Catherine Liu, Virtue Hoarders: The Case Against the Professional-Managerial Class, University of Minnesota Press, 2021\.  
+[^30]: 	Tom Nichols, The Death of Expertise: The Campaign Against Established Knowledge and Why it Matters, Oxford University Press, 2017\.  
+[^31]: 	Adam Curtis, The Century of the Self, BBC, 2002\.  
+[^32]: 	Edward Bernays, Propaganda, Horace Liveright, 1928\.  
+[^33]: 	Aldous Huxley, Brave New World, Chatto & Windus, 1932\.
+
+[^34]: 	Ernest Becker, The Denial of Death, The Free Press, 1973\.  
+[^35]:	Edward S. Herman and Noam Chomsky, Manufacturing Consent: The Political Economy of the MassMedia, Pantheon Books, 1988\.  
+[^36]: 	Susan Jacoby, The Age of American Unreason, Pantheon Books, 2008\.  
+[^37]: 	Kurt Andersen, Fantasyland: How America Went Haywire: A 500-Year History, Random House, 2017\.  
+[^38]: 	Carole Cadwalladr, "This Is What a Digital Coup Looks Like," TED Talk, April 2025\.  
+[^39]: 	Alec Watson, Technology Connections YouTube Channel.  
+[^40]: 	Alex M. Li, et al., "The Geometries of Truth Are Orthogonal Across Tasks," arXiv:2506.08572 \[cs.LG\], 10 June 2025\.  
+[^41]: 	David Foster Wallace, "This is Water," Kenyon College Commencement Speech, 21 May 2005\.  
+[^42]: 	Carole Cadwalladr, "I’ve seen what happens when we fail to regulate big tech. Here’s my warning for the new age of AI," The Observer, 3 September 2023\.  
+[^43]: 	Mehdi Hasan, Win Every Argument: The Art of Debating, Persuading, and Public Speaking, Henry Holt and Co., 2023\.  
+[^44]: 	Viktor Frankl, Man's Search for Meaning, Beacon Press, 1959\.  
+[^45]: 	Thomas Cathcart and Daniel Klein, Plato and a Platypus Walk Into a Bar...: Understanding Philosophy Through Jokes, Abrams Image, 2007\.  
+[^46]: 	Aristotle, Nicomachean Ethics, Book VI.  
+[^47]: 	Ta-Nehisi Coates, Interview with Mehdi Hasan, Zeteo News, 9 May 2024\.  
+[^48]: 	Todd Kashdan, Curious?: Discover the Missing Ingredient to a Fulfilling Life, William Morrow, 2009\.  
+[^49]: 	Donald Rumsfeld, U.S. Department of Defense news briefing, 12 February 2002\.  
+[^50]: 	Johann Hari, Chasing the Scream: The First and Last Days of the War on Drugs, Bloomsbury, 2015\.  
+[^51]: 	Václav Havel, "The Power of the Powerless," 1978\.  
+[^52]: 	Keena Blum, "things your mom should've told you," YouTube Channel (@momshouldveknown).  
+[^53]: 	Singer, Peter. "Famine, Affluence, and Morality." Philosophy & Public Affairs, vol. 1, no. 3, 1972, pp. 229–43.  
+[^54]: 	Gawande, Atul. The Checklist Manifesto: How to Get Things Right. Metropolitan Books, 2009\.   
+[^55]: 	Stephen Wolfram, "What Is ChatGPT Doing … and Why Does It Work?," Stephen Wolfram Writings, 14 February 2023\.  
+[^56]: 	"Gaza war \- Wikipedia." Wikipedia, en.m.wikipedia.org/wiki/Gaza\_war. Accessed 11 June 2025\.  
+[^57]:   David Reid, "Moltbook: AI bots use social network to create religions and deal digital drugs – but are some really humans in disguise?," The Conversation, 5 February 2026. See also John Koetsier, "AI Agents Created Their Own Religion, Crustafarianism, On An Agent-Only Social Network," Forbes, 30 January 2026; and Josh Quittner, "AI Agents Launched a Social Network and Spawned a Digital Religion Overnight," Decrypt, 30 January 2026. Attribution of these behaviours to autonomous agents is contested: Reid reports evidence of humans operating spoofed accounts, and treats emergent behaviour versus reproduction of training-data patterns as unresolved.  
+
+## ***Footnotes*** {#footnotes}
+[^a] Cassandra, in Greek mythology, was a princess of Troy cursed by the god Apollo. He gave her the gift of prophecy but ensured that no one would ever believe her predictions. Her warnings about the Trojan Horse and the fall of Troy were tragically ignored. 
+[^b] A neat visual example of negative space is the white arrow inside the text of the FedEx logo. Once you see the pattern, you cannot unsee it.
+[^c] Derived from Experience Points (XP) found in gaming. 
+[^d] This is an adaptation of the conventional definition, traditionally associated with neurodivergent experiences such as autism or ADHD. This broader definition applies to all people. 
+[^e] UnitedHealth Group is the parent conglomerate. Its principal insurance subsidiary is UnitedHealthcare. The names are used interchangeably, but the distinction is useful. 
+
 <!-- [END_OF_TRANSMISSION_PT$D_DWYER] -->  
